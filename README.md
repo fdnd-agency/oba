@@ -1,5 +1,5 @@
 # OBA
-Redesign van het OBA online platform
+Projecten die onder de OBA vallen
 
 ## Resources
 
