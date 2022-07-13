@@ -1,5 +1,5 @@
 # OBA
-Projecten die onder de OBA vallen
+OBA projecten
 
 ## Resources
 
