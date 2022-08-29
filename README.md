@@ -3,7 +3,7 @@ OBA projecten
 
 ## Resources
 
-(Project board)[https://github.com/fdnd-agency/oba/projects?type=classic]
+(https://github.com/fdnd-agency/oba/projects?type=classic)[Project board]
 Styleguide  
 Content  
 API  
