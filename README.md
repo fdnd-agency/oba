@@ -6,7 +6,7 @@ De Stichting Openbare Bibliotheek Amsterdam (OBA) is een culturele instelling, d
 
 [Project board](https://github.com/orgs/fdnd-agency/projects/5)
 
-[REST API OBA](zoeken.oba.nl/api/v1/)
+[REST API OBA](https://zoeken.oba.nl/api/v1/)
 
 [Living styleguide]()
 
