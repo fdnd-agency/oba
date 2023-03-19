@@ -8,7 +8,9 @@ De Stichting Openbare Bibliotheek Amsterdam (OBA) is een culturele instelling, d
 
 [Sprintplanning Miro Board](https://miro.com/app/board/uXjVPhXSEp0=/?share_link_id=432571571374)
 
-[REST API OBA](https://zoeken.oba.nl/api/v1/)
+[REST API OBA Collecties](https://zoeken.oba.nl/api/v1/) - @OBA AquaBrowser
+
+[REST API OBA Reserveringen](https://api.oba.fdnd.nl/) - @FDND 
 
 [Living styleguide]
 
