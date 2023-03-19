@@ -3,20 +3,23 @@ import { hygraph } from '$lib/server/hygraph'
 import { responseInit } from '$lib/server/responseInit'
 
 export async function GET({ url }) {
-  let id = url.searchParams.get('id') ?? ''
-
+  let first = Number(url.searchParams.get('first') ?? 5)
+  let skip = Number(url.searchParams.get('skip') ?? 0)
+  let direction = url.searchParams.get('direction') === 'ASC' ? 'ASC' : 'DESC'
+  let orderBy = (url.searchParams.get('orderBy') ?? 'publishedAt') + '_' + direction
+  
   const query = gql`
-    query getReservations($id: ID!) {
-      reservations(where: { smartzone: { id: $id } }) {
+    query getReservations($first: Int, $skip: Int, $orderBy: ReservationOrderByInput) {
+      reservations(first: $first, skip: $skip, orderBy: $orderBy) {
+        id
         obaId
-        memberName
+        userName
         date
-        reservationType
       }
     }
   `
 
-  const data = await hygraph.request(query, { id })
+  const data = await hygraph.request(query, { first, skip, orderBy })
   return new Response(JSON.stringify(data), responseInit)
 }
 
@@ -28,77 +31,75 @@ export async function POST({ request }) {
   if (!requestData.obaId || typeof requestData.obaId !== 'string') {
     errors.push({ field: 'obaId', message: 'obaId should exist and have a string value' })
   }
-  if (!requestData.memberName || typeof requestData.memberName !== 'string') {
-    errors.push({ field: 'memberName', message: 'memberName should exist and have a string value' })
+  if (!requestData.userName || typeof requestData.userName !== 'string') {
+    errors.push({ field: 'userName', message: 'userName should exist and have a string value' })
   }
-  if (!requestData.date || typeof requestData.date !== 'date') {
-    errors.push({ field: 'date', message: 'dateEnd should exist and have a date value' })
+  if (!requestData.date || typeof requestData.date !== 'string') {
+    errors.push({ field: 'date', message: 'date should exist and have a date value' })
   }
-  if (!requestData.reservationType || typeof requestData.reservationType !== 'reservationType') {
-    errors.push({ field: 'reservationType', message: 'reservationType should exist and have a reservationType value' })
-  }
-
 
   // Als we hier al errors hebben in de form data sturen we die terug
   if (errors.length > 0) {
     return new Response(
       JSON.stringify({
-        method: 'POST',
-        working: 'yes',
-        succes: false,
-        errors: errors,
-      })
-    )
-
-    // Geen errors, voeg de reservation toe
-  } else {
-    // Bereid de mutatie voor
-    const mutation = gql`
-      mutation createReservation($obaId: String!, $memberName: Date!, $date: Date!, $reservationType: reservationType) {
-        createReservation(data: { obaId: $obaId, memberName: $memberName, date: $date, reservationType: $reservationType }) {
-          id
-        }
-      }
-    `
-    // Bereid publiceren voor
-    const publication = gql`
-      mutation publishReservation($id: ID!) {
-        publishReservation(where: { id: $id }, to: PUBLISHED) {
-          id
-        }
-      }
-    `
-
-    // Voer de mutatie uit
-    const data = await hygraph
-      .request(mutation, { ...requestData })
-      // Stuur de response met created id door
-      .then((data) => {
-        console.log(data)
-        return (
-          hygraph
-            // Voer de publicatie uit met created id
-            .request(publication, { id: data.createReservation.id ?? null })
-            // Vang fouten af bij het publiceren
-            .catch((error) => {
-              errors.push({ field: 'HyGraph', message: error })
-            })
-        )
-      })
-      // Vang fouten af bij de mutatie
-      .catch((error) => {
-        errors.push({ field: 'HyGraph', message: error })
-      })
-
-    return new Response(
-      JSON.stringify({
-        method: 'POST',
-        working: 'yes',
-        success: data && data.publishReservation ? true : false,
-        data: data && data.publishReservation,
         errors: errors,
       }),
-      responseInit
+      {status: 400}
     )
   }
+
+  // Bereid de mutatie voor
+  const mutation = gql`
+    mutation createReservation($obaId: String!, $userName: String!, $date: Date!) {
+      createReservation(data: { obaId: $obaId, userName: $userName, date: $date }) {
+        id
+      }
+    }
+  `
+  // Bereid publiceren voor
+  const publication = gql`
+    mutation publishReservation($id: ID!) {
+      publishReservation(where: { id: $id }, to: PUBLISHED) {
+        id
+      }
+    }
+  `
+
+  // Voer de mutatie uit
+  const data = await hygraph
+    .request(mutation, { ...requestData })
+    // Stuur de response met created id door
+    .then((data) => {
+      console.log(data)
+      return (
+        hygraph
+          // Voer de publicatie uit met created id
+          .request(publication, { id: data.createReservation.id ?? null })
+          // Vang fouten af bij het publiceren
+          .catch((error) => {
+            errors.push({ field: 'HyGraph', message: error })
+          })
+      )
+    })
+    // Vang fouten af bij de mutatie
+    .catch((error) => {
+      errors.push({ field: 'HyGraph', message: error })
+    })
+
+  if (errors.length > 0) {
+    return new Response(
+      JSON.stringify({
+        errors: errors,
+      }),
+      {status: 400}
+    )
+  }
+
+  return new Response(
+    JSON.stringify({
+      data: data && data.publishReservation,
+    }),
+    responseInit
+  )
 }
+
