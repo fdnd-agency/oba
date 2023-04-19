@@ -9,8 +9,8 @@ export async function GET({ url }) {
   let orderBy = (url.searchParams.get('orderBy') ?? 'publishedAt') + '_' + direction
 
   const query = gql`
-    query getStudieplekReservering($first: Int, $skip: Int, $orderBy: ReservationOrderByInput) {
-      studieplekReservering(first: $first, skip: $skip, orderBy: $orderBy) {
+    query getStudieplekReserveringen($first: Int, $skip: Int, $orderBy: StudieplekReserveringOrderByInput) {
+      studieplekReserveringen(first: $first, skip: $skip, orderBy: $orderBy) {
         id
         begintijd
         vestiging {
@@ -30,14 +30,15 @@ export async function POST({ request }) {
   let errors = []
 
   // Controleer de request data op juistheid
-  if (!requestData.obaId || typeof requestData.obaId !== 'string') {
-    errors.push({ field: 'obaId', message: 'obaId should exist and have a string value' })
+  if (!requestData.beginTijd || typeof requestData.beginTijd !== 'string') {
+    errors.push({
+      field: 'beginTijd',
+      message:
+        'beginTijd should exist and have a RFC 3339 value (1978-11-20T09:00:00Z). See: https://ijmacd.github.io/rfc3339-iso8601/',
+    })
   }
-  if (!requestData.userName || typeof requestData.userName !== 'string') {
-    errors.push({ field: 'userName', message: 'userName should exist and have a string value' })
-  }
-  if (!requestData.date || typeof requestData.date !== 'string') {
-    errors.push({ field: 'date', message: 'date should exist and have a date value' })
+  if (!requestData.vestigingId || typeof requestData.vestigingId !== 'string') {
+    errors.push({ field: 'vestigingId', message: 'vestigingId should exist and have a string value' })
   }
 
   // Als we hier al errors hebben in de form data sturen we die terug
@@ -52,16 +53,16 @@ export async function POST({ request }) {
 
   // Bereid de mutatie voor
   const mutation = gql`
-    mutation createReservation($obaId: String!, $userName: String!, $date: Date!) {
-      createReservation(data: { obaId: $obaId, userName: $userName, date: $date }) {
+    mutation createStudieplekReservering($beginTijd: DateTime!, $vestigingId: ID!) {
+      createStudieplekReservering(data: { begintijd: $beginTijd, vestiging: { connect: { id: $vestigingId } } }) {
         id
       }
     }
   `
   // Bereid publiceren voor
   const publication = gql`
-    mutation publishReservation($id: ID!) {
-      publishReservation(where: { id: $id }, to: PUBLISHED) {
+    mutation publishStudieplekReservering($id: ID!) {
+      publishStudieplekReservering(where: { id: $id }, to: PUBLISHED) {
         id
       }
     }
@@ -76,7 +77,7 @@ export async function POST({ request }) {
       return (
         hygraph
           // Voer de publicatie uit met created id
-          .request(publication, { id: data.createReservation.id ?? null })
+          .request(publication, { id: data.createStudieplekReservering.id ?? null })
           // Vang fouten af bij het publiceren
           .catch((error) => {
             errors.push({ field: 'HyGraph', message: error })
@@ -99,7 +100,7 @@ export async function POST({ request }) {
 
   return new Response(
     JSON.stringify({
-      data: data && data.publishReservation,
+      data: data && data.publishStudieplekReservering,
     }),
     responseInit
   )

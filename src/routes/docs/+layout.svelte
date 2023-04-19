@@ -9,10 +9,13 @@
 			GET: '/docs/reserveringen#get',
 			POST: '/docs/reserveringen#post'
 		},
+		StudieplekReservering: {
+			GET: '/docs/studieplekReservering#get',
+			POST: '/docs/studieplekReservering#post'
+		},
 		Vestigingen: {
 			GET: '/docs/vestigingen#get'
 		}
-		
 	};
 </script>
 
