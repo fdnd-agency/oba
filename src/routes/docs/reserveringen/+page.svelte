@@ -1,5 +1,7 @@
 <h2>Reserveringen</h2>
 
+<p>Haal een lijst met reserveringen op.</p>
+
 <h3 id="get">GET</h3>
 
 <ul><li>
