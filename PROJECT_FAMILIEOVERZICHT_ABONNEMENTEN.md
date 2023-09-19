@@ -1,6 +1,6 @@
 ![OBA](https://user-images.githubusercontent.com/1061632/191293310-64f64c1f-8b5a-42a3-8181-d0fb240ebc56.png)
 
-# Mijn OBA - Famnilieoverzicht abonnementen
+# Mijn OBA - Familieoverzicht abonnementen
 
 Een belangrijke onderdeel van het Mijn OBA platform is de pagina met een overicht van alle abonnementen van een familie. Hier kunnen gebruikers inzicht krijgen in de uitleengeschiedenis, abonnementsvorm, openstaande boetes en gepersonaliseerde suggesties voor boeken, activiteiten, etc 
 
