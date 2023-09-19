@@ -16,7 +16,7 @@ Ontwerp en bouw de Familieoverzicht pagina van het mijn OBA platform.
 [Content]() _wordt nog aangeleverd door de OBA_
 
 ## Prototypes
-**Design header & navigatie**  
+**Uitgangspunt voor het Design van de header & navigatie**  
 Amber: [Live site](https://amberhva.github.io/fix-the-flow-interactive-website) | [GitHub repo](https://github.com/Amberhva/fix-the-flow-interactive-website)  
 
 **Inspiratie**  
