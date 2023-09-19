@@ -9,7 +9,7 @@ Ontwerp en bouw de profielpagina van het mijn OBA platform
 
 ## Resources
 
-[Backlog](https://github.com/orgs/fdnd-agency/projects/5/views/4)
+[Backlog](https://github.com/orgs/fdnd-agency/projects/5/views/6)
 
 <!--[Sprintplanning Miro Board](https://miro.com/app/board/uXjVPhXSEp0=/?share_link_id=432571571374)-->
 
