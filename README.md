@@ -15,7 +15,7 @@ De Stichting Openbare Bibliotheek Amsterdam (OBA) is een culturele instelling, d
 [Huisstijl](https://github.com/fdnd-agency/oba/blob/main/OBA%20Styleguide%202019.pdf)
 
 ## Prototypes
-**Header & navigatie**  
+**Uitgangspunt header & navigatie**  
 [Amber](https://amberhva.github.io/fix-the-flow-interactive-website)
 
 **Inspiratie:**  
