@@ -18,8 +18,8 @@ De Stichting Openbare Bibliotheek Amsterdam (OBA) is een culturele instelling, d
 
 ## Prototypes
 **Design header & navigatie**  
-Amber [Live site](https://amberhva.github.io/fix-the-flow-interactive-website) | [GitHub repo](https://github.com/Amberhva/fix-the-flow-interactive-website)  
+Amber: [Live site](https://amberhva.github.io/fix-the-flow-interactive-website) | [GitHub repo](https://github.com/Amberhva/fix-the-flow-interactive-website)  
 
 **Inspiratie:**  
-Stefan, Arexan, Jalal: [Live site](https://uninterested-shirt-seal.cyclic.app/) | [GitHub repo]()  
-Arexan [Live site](https://arexank.github.io/OBA-interactive-website/) | [GitHub repo]()  
+Team Stefan, Arexan, Jalal: [Live site](https://uninterested-shirt-seal.cyclic.app/) | [GitHub repo]()  
+Arexan: [Live site](https://arexank.github.io/OBA-interactive-website/) | [GitHub repo]()  
