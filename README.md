@@ -10,11 +10,14 @@ De Stichting Openbare Bibliotheek Amsterdam (OBA) is een culturele instelling, d
 
 [REST API OBA Collecties](https://zoeken.oba.nl/api/v1/) - @OBA AquaBrowser
 
-[REST API OBA Reserveringen](https://api.oba.fdnd.nl/) - @FDND 
+[Headless CMS Mijn OBA](https://app.hygraph.com/0f903a52d2c94cca9cdbf6a7d9c48a0c/master) - @FDND 
 
 [Huisstijl](https://github.com/fdnd-agency/oba/blob/main/OBA%20Styleguide%202019.pdf)
 
 ## Prototypes
-[Stefan, Arexan, Jalal](https://uninterested-shirt-seal.cyclic.app/)
+**Header & navigatie**  
 [Amber](https://amberhva.github.io/fix-the-flow-interactive-website)
+
+**Inspiratie:**  
+[Stefan, Arexan, Jalal](https://uninterested-shirt-seal.cyclic.app/)
 [Arexan](https://arexank.github.io/OBA-interactive-website/)
