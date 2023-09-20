@@ -2,7 +2,7 @@
 
 # Mijn OBA - Familieoverzicht abonnementen
 
-Een belangrijke onderdeel van het Mijn OBA platform is de pagina met een overicht van alle abonnementen van een familie. Hier kunnen gebruikers inzicht krijgen in de uitleengeschiedenis, abonnementsvorm, openstaande boetes en gepersonaliseerde suggesties voor boeken, activiteiten, etc 
+Een belangrijke onderdeel van het Mijn OBA platform is de pagina met een overzicht van alle abonnementen van een familie. Hier kunnen gebruikers inzicht krijgen in de uitleengeschiedenis, abonnementsvorm, openstaande boetes en gepersonaliseerde suggesties voor boeken, activiteiten, etc 
 
 ## Design challenge
 Ontwerp en bouw de Familieoverzicht pagina van het mijn OBA platform.
