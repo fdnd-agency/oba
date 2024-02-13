@@ -15,7 +15,7 @@
     <!-- menu  -->
 </header>
  
-hoi
+
 
 <section  class="hero-text">
         <article>
