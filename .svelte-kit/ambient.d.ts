@@ -26,8 +26,6 @@
  * ```
  */
 declare module '$env/static/private' {
-	export const HYGRAPH_URL: string;
-	export const HYGRAPH_KEY: string;
 	export const ALLUSERSPROFILE: string;
 	export const APPDATA: string;
 	export const CHROME_CRASHPAD_PIPE_NAME: string;
@@ -124,7 +122,7 @@ declare module '$env/static/private' {
  * ```
  */
 declare module '$env/static/public' {
-	export const PUBLIC_API_KEY: string;
+	
 }
 
 /**
@@ -143,8 +141,6 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
-		HYGRAPH_URL: string;
-		HYGRAPH_KEY: string;
 		ALLUSERSPROFILE: string;
 		APPDATA: string;
 		CHROME_CRASHPAD_PIPE_NAME: string;
@@ -248,7 +244,6 @@ declare module '$env/dynamic/private' {
  */
 declare module '$env/dynamic/public' {
 	export const env: {
-		PUBLIC_API_KEY: string;
 		[key: `PUBLIC_${string}`]: string | undefined;
 	}
 }
