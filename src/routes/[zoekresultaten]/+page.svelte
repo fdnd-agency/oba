@@ -1,10 +1,9 @@
 <script>
     export let data; // Assuming this is your search data
 
-    console.log(data.results)
     const results = data.results
     import { Card, Nav, Search} from '$lib/index.js'
-    
+
 </script>
 
 <header>

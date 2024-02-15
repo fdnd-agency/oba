@@ -11,7 +11,7 @@
 
 
 <a href="{bookDetailLink}">
-    <article class="background-image" style="background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5)), url('{bookUrl}');">
+    <article class="background-image carrousel-picture" style="background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5)), url('{bookUrl}');">
         <!-- In de html elementen benoem ik lege js variabeles en deze geef ik leeg mee aan de pagina waar dit component wordt gebruikt -->
         <section class="info">
             <p class="p__title">{bookTitle}</p>
@@ -22,16 +22,20 @@
 
 
 <style>     
+
+
     a {
         text-decoration: none;
         color: var(--primary-light-color);
         z-index: 2;
+        margin-left: 14px;
     }
+
     article {
         position: relative;
         display: flex;
         flex-direction: column;
-        margin: 1rem 1rem 1rem 0;
+        margin: 1rem 0rem 1rem 0;
         width: 15rem;
         height: 20rem;
         padding: 1rem;
@@ -47,9 +51,13 @@
         box-shadow: 0 4px 6px 1px #ccc;
         background-color: linear-gradient(to top, transparent, #000000);
         z-index: 2;
+        scroll-snap-align: center; /* Zorgt ervoor dat de img in het midden snapt */
     }
 
-    
+    .carrousel-article {  }
+
+.carrousel-article::-webkit-scrollbar { display: none; }
+
     article:hover {
         scale: 103%;
         color: var(--primary-light-color);

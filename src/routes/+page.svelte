@@ -1,241 +1,466 @@
 <script>
-    // Hier import ik de components die nodig zijn in deze pagina
-    import { Card,  LinkButton, Logo, Search, Nav } from '$lib/index.js'
-    export let data;
-    const hygraphData = data.hygraphData;
-    const homepage = hygraphData.homepages;
-    // Hier export ik de data zodat ik de data vanuit hygraph kan gebruiken die ik query in de page.server
+	// Hier import ik de components die nodig zijn in deze pagina
+	import { Card, LinkButton, Logo, Search, Nav, Carousel } from '$lib/index.js';
+	import { onMount } from 'svelte';
 
+	export let data;
+
+	const hygraphData = data.hygraphData;
+	const homepage = hygraphData.homepages;
+
+	// Hier export ik de data zodat ik de data vanuit hygraph kan gebruiken die ik query in de page.server
+	onMount(() => {
+		// Slider 1: Jouw recente leeslijst: boeken
+		var prevButton = document.getElementById('button-prev-1');
+
+		prevButton.addEventListener('click', function () {
+			var el = document.querySelector('#voorbeeld-1 .carrousel-a');
+			el.scrollBy({ left: -1 * 200 });
+		});
+
+		var nextButton = document.getElementById('button-next-1');
+
+		nextButton.addEventListener('click', function () {
+			var el = document.querySelector('#voorbeeld-1 .carrousel-a');
+			el.scrollBy({ left: 200 });
+		});
+
+		// Slider 2: Jouw recente leeslijst: e-boeken
+		var prevButton = document.getElementById('button-prev-2');
+
+		prevButton.addEventListener('click', function () {
+			var el = document.querySelector('#voorbeeld-2 .carrousel-a');
+			el.scrollBy({ left: -1 * 200 });
+		});
+
+		var nextButton = document.getElementById('button-next-2');
+
+		nextButton.addEventListener('click', function () {
+			var el = document.querySelector('#voorbeeld-2 .carrousel-a');
+			el.scrollBy({ left: 200});
+		});
+
+		// Slider 3: Jouw recente leeslijst: luisterboeken
+		var prevButton = document.getElementById('button-prev-3');
+
+		prevButton.addEventListener('click', function () {
+			var el = document.querySelector('#voorbeeld-3 .carrousel-a');
+			el.scrollBy({ left: -1 * 200 });
+		});
+
+		var nextButton = document.getElementById('button-next-3');
+
+		nextButton.addEventListener('click', function () {
+			var el = document.querySelector('#voorbeeld-3 .carrousel-a');
+			el.scrollBy({ left: 200 });
+		});
+	});
 </script>
 
 <header>
-    <Nav />
-    <Search 
-    cardData={data.apiBooks.results.concat(data.apiEBooks.results, data.apiAudioBooks.results)}/>
-    <!-- menu  -->
+	<Nav />
+	<Search
+		cardData={data.apiBooks.results.concat(data.apiEBooks.results, data.apiAudioBooks.results)}
+	/>
+	<!-- menu  -->
 </header>
- 
 
-
-<section  class="hero-text">
-        <article>
-                <h1>
-                    Welkom <span>{hygraphData.families[0].name}</span> bij OBA!
-                </h1>
-                <p> {homepage[0].homepageText}</p>
-        </article>
-        <article class="logo">
-                <img src="{Logo}" alt="oba logo" width="100%" >
-        </article>
-
+<section class="hero-text">
+	<article>
+		<h1>
+			Welkom <span>{hygraphData.families[0].name}</span> bij OBA!
+		</h1>
+		<p>{homepage[0].homepageText}</p>
+	</article>
+	<article class="logo">
+		<img src={Logo} alt="oba logo" width="100%" />
+	</article>
 </section>
 
+<Carousel />
 
+<section>
+	<article>
+		<h2>Jouw recente leeslijst: <span>boeken<span></span></span></h2>
+		<p>{homepage[1].homepageText}</p>
+		<LinkButton buttonText="Bekijk Leeslijst" buttonLink="/leeslijst" />
+	</article>
 
-    <section>
-            <article>
-                <h2>Jouw recente leeslijst: <span>boeken<span></h2>
-                <p> {homepage[1].homepageText}</p>
-                <LinkButton buttonText="Bekijk Leeslijst" buttonLink="/leeslijst"/>
-            </article>
-
-            <article class="carousel">
-                {#each data.apiBooks.results.slice(0, 5) as book}
-                <Card 
-                    bookAuthor={book.authors}
-                    bookTitle={book.titles}
-                    bookUrl={book.coverimages}
-                    bookDetailLink={book.detailLink}
-                />
-            {/each}
-            </article>
-    </section>
-
-
-<section>   
-    <article class="readinglist-text">  
-        <h2>
-            Jouw recente leeslijst: <span>e-boeken<span>
-            </h2>
-            <p> {homepage[2].homepageText}</p>
-            <LinkButton buttonText="Bekijk Leeslijst" buttonLink="/leeslijst"/>
-    </article>
-
-    <article class="carousel">
-        {#each data.apiEBooks.results.slice(0, 5) as book}
-        <Card 
-            bookAuthor={book.authors}
-            bookTitle={book.titles}
-            bookUrl={book.coverimages}
-            bookDetailLink={book.detailLink}
-        />
-    {/each}
-
-    </article>
-    
+	<article class="carousel-container">
+		<div class="nav-btn-right">
+			<button id="button-prev-1" class="carousel-btn prev-btn"
+				><div class="icon">
+					<svg
+						aria-hidden="true"
+						focusable="false"
+						viewBox="0 0 24 24"
+						role="img"
+						width="24px"
+						height="24px"
+						fill="none"
+						><path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967"
+						></path></svg
+					>
+				</div></button
+			>
+			<button id="button-next-1" class="carousel-btn next-btn"
+				><div class="icon">
+					<svg
+						aria-hidden="true"
+						focusable="false"
+						viewBox="0 0 24 24"
+						role="img"
+						width="24px"
+						height="24px"
+						fill="none"
+						><path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033"
+						></path></svg
+					>
+				</div></button
+			>
+		</div>
+		<div id="voorbeeld-1">
+			<div class="carrousel-a">
+				{#each data.apiBooks.results.slice(0, 5) as book}
+					<Card
+						bookAuthor={book.authors}
+						bookTitle={book.titles}
+						bookUrl={book.coverimages}
+						bookDetailLink={book.detailLink}
+					/>
+				{/each}
+			</div>
+		</div>
+	</article>
 </section>
 
+<section>
+	<article class="readinglist-text">
+		<h2>
+			Jouw recente leeslijst: <span>e-boeken<span> </span></span>
+		</h2>
+		<p>{homepage[2].homepageText}</p>
+		<LinkButton buttonText="Bekijk Leeslijst" buttonLink="/leeslijst" />
+	</article>
+
+	<article class="carousel-container">
+		<div class="nav-btn-left">
+			<button id="button-prev-2" class="carousel-btn prev-btn"
+				><div class="icon">
+					<svg
+						aria-hidden="true"
+						focusable="false"
+						viewBox="0 0 24 24"
+						role="img"
+						width="24px"
+						height="24px"
+						fill="none"
+						><path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967"
+						></path></svg
+					>
+				</div></button
+			>
+			<button id="button-next-2" class="carousel-btn next-btn"
+				><div class="icon">
+					<svg
+						aria-hidden="true"
+						focusable="false"
+						viewBox="0 0 24 24"
+						role="img"
+						width="24px"
+						height="24px"
+						fill="none"
+						><path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033"
+						></path></svg
+					>
+				</div></button
+			>
+		</div>
+		<div id="voorbeeld-2">
+			<div class="carrousel-a">
+				{#each data.apiEBooks.results.slice(0, 5) as book}
+					<Card
+						bookAuthor={book.authors}
+						bookTitle={book.titles}
+						bookUrl={book.coverimages}
+						bookDetailLink={book.detailLink}
+					/>
+				{/each}
+			</div>
+		</div>
+	</article>
+</section>
 
 <!-- leeslijst sections zijn precies dezelfde classes, want opmaak is exact hetzelfde elke keer -->
 
 <section class="readinglist-books-section">
-    <article>
-        <h2> Jouw recente leeslijst: <span>luisterboeken<span></h2>
-        <p>{homepage[3].homepageText}</p>
-        <LinkButton buttonText="Bekijk Leeslijst" buttonLink="/leeslijst"/>
-        </article>
-    <article class="carousel">
-        {#each data.apiAudioBooks.results.slice(0, 5) as book}
-        <Card 
-            bookAuthor={book.authors}
-            bookTitle={book.titles}
-            bookUrl={book.coverimages}
-            bookDetailLink={book.detailLink}
-        />
-    {/each}
-
-    </article>
-
+	<article>
+		<h2>Jouw recente leeslijst: <span>luisterboeken<span></span></span></h2>
+		<p>{homepage[3].homepageText}</p>
+		<LinkButton buttonText="Bekijk Leeslijst" buttonLink="/leeslijst" />
+	</article>
+	<article class="carousel-container">
+		<div class="nav-btn-right">
+			<button id="button-prev-3" class="carousel-btn prev-btn"
+				><div class="icon">
+					<svg
+						aria-hidden="true"
+						focusable="false"
+						viewBox="0 0 24 24"
+						role="img"
+						width="24px"
+						height="24px"
+						fill="none"
+						><path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967"
+						></path></svg
+					>
+				</div></button
+			>
+			<button id="button-next-3" class="carousel-btn next-btn"
+				><div class="icon">
+					<svg
+						aria-hidden="true"
+						focusable="false"
+						viewBox="0 0 24 24"
+						role="img"
+						width="24px"
+						height="24px"
+						fill="none"
+						><path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033"
+						></path></svg
+					>
+				</div></button
+			>
+		</div>
+		<div id="voorbeeld-3">
+			<div class="carrousel-a">
+				{#each data.apiAudioBooks.results.slice(0, 5) as book}
+					<Card
+						bookAuthor={book.authors}
+						bookTitle={book.titles}
+						bookUrl={book.coverimages}
+						bookDetailLink={book.detailLink}
+					/>
+				{/each}
+			</div>
+		</div>
+	</article>
 </section>
 
 <section class="about">
-    <article class="about-text"> 
-        <h2>
-        Ontdek de Wereld van Leren bij <span>OBA!</span>
-        </h2>
-        <p>{homepage[4].homepageText}</p>
-        
-  
-    </article>
-        <article class="centerCarousel">
-            {#each hygraphData.activiteitens.slice(0, 5) as activiteiten}
-            <a href="{activiteiten.activiteitLink}">
-                <img src="{activiteiten.activiteitImage.url}" alt="{activiteiten.activiteitNaam}" width="300" height="200">
-                <h3>{activiteiten.activiteitNaam}</h3>
-            </a>
-        {/each} 
-    
-    </article>    
-    <LinkButton buttonText="Meer bekijken" buttonLink="https://www.oba.nl/"/>
+	<article class="about-text">
+		<h2>
+			Ontdek de Wereld van Leren bij <span>OBA!</span>
+		</h2>
+		<p>{homepage[4].homepageText}</p>
+	</article>
+	<article class="centerCarousel">
+		{#each hygraphData.activiteitens.slice(0, 5) as activiteiten}
+			<a href={activiteiten.activiteitLink}>
+				<img
+					src={activiteiten.activiteitImage.url}
+					alt={activiteiten.activiteitNaam}
+					width="300"
+					height="200"
+				/>
+				<h3>{activiteiten.activiteitNaam}</h3>
+			</a>
+		{/each}
+	</article>
+	<LinkButton buttonText="Meer bekijken" buttonLink="https://www.oba.nl/" />
 </section>
 
-
 <style>
+	.carrousel-a {
+		display: flex;
+		gap: 15px;
+	}
 
-section{
-    margin: 2rem auto;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-}
+	.carrousel-a {
+		overflow: auto;
+		scroll-behavior: smooth;
+	}
 
-section:nth-child(2n+1){
-    background-color: var(--primary-light-color);
-}
+	.carrousel-a {
+		scroll-snap-type: x mandatory;
+	}
 
-article{
-    padding: 4rem 0;
-}
+	.carrousel-picture {
+		scroll-snap-align: center;
+	}
 
-p{
-    padding: 2rem 0;
+	.carrousel-a {
+		scrollbar-width: none;
+	}
 
-}
+	.nav-btn-left {
+		display: -webkit-flex;
+		width: 100%;
+		padding: 10px;
+		-webkit-justify-content: flex-start;
+	}
 
-.logo{
-    padding: 0;
-}
+	.nav-btn-right {
+		display: -webkit-flex;
+		width: 100%;
+		padding: 10px;
+		-webkit-justify-content: flex-end;
+	}
 
-.carousel{
- display: flex;
-  gap: 10px;
-  width: 580px;
-  max-width: 90%;
-  padding: 10px;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  animation-name: tostart;
-}
+	.carousel-btn {
+		position: static;
+		border-radius: 23px;
+		border: none;
+	}
 
-a{
-    color: var(--primary-dark-color);
-    text-decoration: none;
-}
-span{
-    color: var(--primary-accent-color);
-}
-.hero-text{
-    justify-content: flex-start;
-}
+	.carousel-btn:hover {
+		background-color: #e5e5e5;
+		transition: 0.5s;
+	}
 
-@keyframes tostart {
-  75% {
-    left: 0;
-  }
-  95% {
-    left: -300%;
-  }
-  98% {
-    left: -300%;
-  }
-  99% {
-    left: 0;
-  }
-}
+	.carousel-btn {
+		position: static;
+		border-radius: 23px;
+		border: none;
+	}
 
-@media only screen and (min-width: 45rem) {
-    section{
-    height: 65vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 4rem;
-    }
+	.prev-btn {
+	}
 
-    section:nth-of-type(odd):not(.hero-text):not(:last-child) {
-        flex-direction: row-reverse;
-    }
+	.next-btn {
+		margin-inline-start: 15px;
+	}
 
-    section:nth-child(2){
-        width: 85%;
-    }
-    article{
-    width: 45%;
-    padding: 5rem 0;
-    }
-    
-    .logo{
-        width: 50%;
-    }
-    .about{
-      height: 100%;
-      display: flex;
-      gap: 1.5rem;
-      flex-direction: column !important;
-      padding-bottom: 5rem;
-    }
-    .about-text{
-      text-align: center;
-      padding-bottom: 0;
-    }
-    .centerCarousel{
-    display: flex;
-    gap: 10px;
-    width: 70vw;
-    max-width: 90%;
-    padding: 0 1rem;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    animation-name: tostart;
-    }
-    .centerCarousel a{
-      text-decoration: none;
-      color: var(--primary-dark-color);
-    }
-}
+	.icon {
+		height: 45px;
+		width: 45px;
+		border-radius: 30px;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		-webkit-align-items: center;
+		-webkit-box-align: center;
+	}
 
+	section {
+		margin: 2rem auto;
+		padding: 1rem;
+		display: flex;
+		flex-direction: column;
+	}
 
+	section:nth-child(2n + 1) {
+		background-color: var(--primary-light-color);
+	}
+
+	article {
+		padding: 4rem 0;
+	}
+
+	p {
+		padding: 2rem 0;
+	}
+
+	.logo {
+		padding: 0;
+	}
+
+	.carousel-container {
+		width: 580px;
+		max-width: 90%;
+		padding: 10px;
+	}
+
+	.carousel {
+		gap: 10px;
+		display: flex;
+		overflow: auto;
+		scroll-snap-type: x mandatory; /* Zorgt ervoor dat de img snapt */
+		scrollbar-width: none;
+	}
+
+	a {
+		color: var(--primary-dark-color);
+		text-decoration: none;
+	}
+
+	span {
+		color: var(--primary-accent-color);
+	}
+	.hero-text {
+		justify-content: flex-start;
+	}
+
+	@keyframes tostart {
+		75% {
+			left: 0;
+		}
+		95% {
+			left: -300%;
+		}
+		98% {
+			left: -300%;
+		}
+		99% {
+			left: 0;
+		}
+	}
+
+	@media only screen and (min-width: 45rem) {
+		section {
+			height: 65vh;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			gap: 4rem;
+		}
+
+		section:nth-of-type(odd):not(.hero-text):not(:last-child) {
+			flex-direction: row-reverse;
+		}
+
+		section:nth-child(2) {
+			width: 85%;
+		}
+		/* article {
+			width: 45%;
+			padding: 5rem 0;
+		} */
+
+		.logo {
+			width: 50%;
+		}
+		.about {
+			height: 100%;
+			display: flex;
+			gap: 1.5rem;
+			flex-direction: column !important;
+			padding-bottom: 5rem;
+		}
+		.about-text {
+			text-align: center;
+			padding-bottom: 0;
+		}
+		.centerCarousel {
+			display: flex;
+			gap: 10px;
+			width: 70vw;
+			max-width: 90%;
+			padding: 0 1rem;
+			overflow-x: scroll;
+			scroll-snap-type: x mandatory;
+			scroll-behavior: smooth;
+			animation-name: tostart;
+		}
+		.centerCarousel a {
+			text-decoration: none;
+			color: var(--primary-dark-color);
+		}
+	}
 </style>
