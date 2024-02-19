@@ -88,8 +88,8 @@
 
 	<article class="carousel-container">
 		<div class="nav-btn-right">
-			<button id="button-prev-1" class="carousel-btn prev-btn"
-				><div class="icon">
+			<div id="button-prev-1" class="carousel-btn prev-btn"
+				><button class="icon">
 					<svg
 						aria-hidden="true"
 						focusable="false"
@@ -101,10 +101,10 @@
 						><path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967"
 						></path></svg
 					>
-				</div></button
+				</button></div
 			>
-			<button id="button-next-1" class="carousel-btn next-btn"
-				><div class="icon">
+			<div id="button-next-1" class="carousel-btn next-btn"
+				><button class="icon">
 					<svg
 						aria-hidden="true"
 						focusable="false"
@@ -116,7 +116,7 @@
 						><path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033"
 						></path></svg
 					>
-				</div></button
+				</button></div
 			>
 		</div>
 		<div id="voorbeeld-1">
@@ -145,8 +145,8 @@
 
 	<article class="carousel-container">
 		<div class="nav-btn-left">
-			<button id="button-prev-2" class="carousel-btn prev-btn"
-				><div class="icon">
+			<div id="button-prev-2" class="carousel-btn prev-btn"
+				><button class="icon">
 					<svg
 						aria-hidden="true"
 						focusable="false"
@@ -158,10 +158,10 @@
 						><path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967"
 						></path></svg
 					>
-				</div></button
+				</button></div
 			>
-			<button id="button-next-2" class="carousel-btn next-btn"
-				><div class="icon">
+			<div id="button-next-2" class="carousel-btn next-btn"
+				><button class="icon">
 					<svg
 						aria-hidden="true"
 						focusable="false"
@@ -173,7 +173,7 @@
 						><path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033"
 						></path></svg
 					>
-				</div></button
+				</button></div
 			>
 		</div>
 		<div id="voorbeeld-2">
@@ -201,8 +201,8 @@
 	</article>
 	<article class="carousel-container">
 		<div class="nav-btn-right">
-			<button id="button-prev-3" class="carousel-btn prev-btn"
-				><div class="icon">
+			<div id="button-prev-3" class="carousel-btn prev-btn"
+				><button class="icon">
 					<svg
 						aria-hidden="true"
 						focusable="false"
@@ -214,10 +214,10 @@
 						><path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967"
 						></path></svg
 					>
-				</div></button
+				</button></div
 			>
-			<button id="button-next-3" class="carousel-btn next-btn"
-				><div class="icon">
+			<div id="button-next-3" class="carousel-btn next-btn"
+				><button class="icon">
 					<svg
 						aria-hidden="true"
 						focusable="false"
@@ -229,7 +229,7 @@
 						><path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033"
 						></path></svg
 					>
-				</div></button
+				</button></div
 			>
 		</div>
 		<div id="voorbeeld-3">
@@ -313,7 +313,7 @@
 		border: none;
 	}
 
-	.carousel-btn:hover {
+	.icon:hover {
 		background-color: #e5e5e5;
 		transition: 0.5s;
 	}
@@ -345,6 +345,7 @@
 		justify-content: center;
 		-webkit-align-items: center;
 		-webkit-box-align: center;
+		border: none;
 	}
 
 	section {
