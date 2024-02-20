@@ -91,7 +91,8 @@
     -webkit-backdrop-filter: blur(10px); /* Safari support */
 
     /* Fallback for browsers that do not support backdrop-filter */
-    background: rgba(5, 77, 157, 0.75);
+    opacity: 97%;
+    background: var(--primary-accent-color);
     margin: 0;
     margin-top: .11rem;
     display: -ms-grid;
