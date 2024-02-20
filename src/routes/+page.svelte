@@ -73,7 +73,7 @@
 		<p>{homepage[0].homepageText}</p>
 	</article>
 	<article class="logo">
-		<img src={Logo} alt="oba logo" width="100%" />
+		<img class="logo-img" src={Logo} alt="oba logo"/>
 	</article>
 </section>
 
@@ -300,6 +300,10 @@
 		-webkit-justify-content: flex-start;
 	}
 
+	.logo-img {
+		width: 100%;
+	}
+
 	.nav-btn-right {
 		display: -webkit-flex;
 		width: 100%;
@@ -389,6 +393,7 @@
 		color: var(--primary-dark-color);
 		text-decoration: none;
 	}
+	
 
 	span {
 		color: var(--primary-accent-color);
