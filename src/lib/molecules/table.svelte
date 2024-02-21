@@ -43,30 +43,20 @@
 
 <section class="btn-arrow-down" id="btn-arrow-down">
 	<button class="arrow-svg" on:click={countClicks}
-		><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="height: 30px;"
-			><g data-name="15.Arrow Down"
-				><path
-					d="M12 24a12 12 0 1 1 12-12 12.013 12.013 0 0 1-12 12zm0-22a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2z"
-				/><path
-					d="m12 18.414-4.707-4.707 1.414-1.414L12 15.586l3.293-3.293 1.414 1.414L12 18.414z"
-				/><path d="M11 6h2v11h-2z" /></g
-			></svg
+		><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+			><path
+				d="M12 17.414 3.293 8.707l1.414-1.414L12 14.586l7.293-7.293 1.414 1.414L12 17.414z"
+			/></svg
 		></button
 	>
 </section>
 
 <section class="btn-arrow-up" id="btn-arrow-up">
 	<button class="arrow-svg" on:click={countClicks2}
-		><svg
-			style="height: 30px;"
-			data-name="1.Arrow Up"
-			xmlns="http://www.w3.org/2000/svg"
-			viewBox="0 0 24 24"
+		><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
 			><path
-				d="M12 24a12 12 0 1 1 12-12 12.013 12.013 0 0 1-12 12zm0-22a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2z"
-			/><path
-				d="M15.293 11.707 12 8.414l-3.293 3.293-1.414-1.414L12 5.586l4.707 4.707-1.414 1.414z"
-			/><path d="M11 7h2v11h-2z" /></svg
+				d="m12 6.586-8.707 8.707 1.414 1.414L12 9.414l7.293 7.293 1.414-1.414L12 6.586z"
+			/></svg
 		></button
 	>
 </section>
@@ -80,16 +70,36 @@
 	.btn-arrow-up {
 		display: none;
 		margin-top: 30px;
+		justify-content: center;
 	}
 
 	.btn-arrow-down {
 		display: grid;
 		margin-top: 30px;
+		justify-content: center;
 	}
 
 	.arrow-svg {
-		background-color: #f2f5ff;
+		height: 50px;
+		width: 50px;
+		border-radius: 30px;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		-webkit-align-items: center;
+		-webkit-box-align: center;
 		border: none;
+		background-color: #e5e5e5;
+	}
+
+	.arrow-svg:hover {
+		background-color: #cecece;
+		transition: 0.5s;
 	}
 
 	table {
