@@ -37,7 +37,7 @@
 
 		nextButton.addEventListener('click', function () {
 			var el = document.querySelector('#voorbeeld-2 .carrousel-a');
-			el.scrollBy({ left: 200});
+			el.scrollBy({ left: 200 });
 		});
 
 		// Slider 3: Jouw recente leeslijst: luisterboeken
@@ -73,7 +73,7 @@
 		<p>{homepage[0].homepageText}</p>
 	</article>
 	<article class="logo">
-		<img class="logo-img" src={Logo} alt="oba logo"/>
+		<img class="logo-img" src={Logo} alt="oba logo" />
 	</article>
 </section>
 
@@ -88,36 +88,24 @@
 
 	<article class="carousel-container">
 		<div class="nav-btn-right">
-			<div id="button-prev-1" class="carousel-btn prev-btn"
-				><button class="icon">
-					<svg
-						aria-hidden="true"
-						focusable="false"
-						viewBox="0 0 24 24"
-						role="img"
-						width="24px"
-						height="24px"
-						fill="none"
-						><path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967"
-						></path></svg
+			<div id="button-prev-1" class="carousel-btn prev-btn">
+				<button class="icon icon-right">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+						><path
+							d="M15.293 3.293 6.586 12l8.707 8.707 1.414-1.414L9.414 12l7.293-7.293-1.414-1.414z"
+						/></svg
 					>
-				</button></div
-			>
-			<div id="button-next-1" class="carousel-btn next-btn"
-				><button class="icon">
-					<svg
-						aria-hidden="true"
-						focusable="false"
-						viewBox="0 0 24 24"
-						role="img"
-						width="24px"
-						height="24px"
-						fill="none"
-						><path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033"
-						></path></svg
+				</button>
+			</div>
+			<div id="button-next-1" class="carousel-btn next-btn">
+				<button class="icon icon-right">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+						><path
+							d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"
+						/></svg
 					>
-				</button></div
-			>
+				</button>
+			</div>
 		</div>
 		<div id="voorbeeld-1">
 			<div class="carrousel-a">
@@ -145,36 +133,24 @@
 
 	<article class="carousel-container">
 		<div class="nav-btn-left">
-			<div id="button-prev-2" class="carousel-btn prev-btn"
-				><button class="icon">
-					<svg
-						aria-hidden="true"
-						focusable="false"
-						viewBox="0 0 24 24"
-						role="img"
-						width="24px"
-						height="24px"
-						fill="none"
-						><path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967"
-						></path></svg
+			<div id="button-prev-2" class="carousel-btn prev-btn">
+				<button class="icon icon-left">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+						><path
+							d="M15.293 3.293 6.586 12l8.707 8.707 1.414-1.414L9.414 12l7.293-7.293-1.414-1.414z"
+						/></svg
 					>
-				</button></div
-			>
-			<div id="button-next-2" class="carousel-btn next-btn"
-				><button class="icon">
-					<svg
-						aria-hidden="true"
-						focusable="false"
-						viewBox="0 0 24 24"
-						role="img"
-						width="24px"
-						height="24px"
-						fill="none"
-						><path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033"
-						></path></svg
+				</button>
+			</div>
+			<div id="button-next-2" class="carousel-btn next-btn">
+				<button class="icon icon-left">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+						><path
+							d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"
+						/></svg
 					>
-				</button></div
-			>
+				</button>
+			</div>
 		</div>
 		<div id="voorbeeld-2">
 			<div class="carrousel-a">
@@ -201,36 +177,24 @@
 	</article>
 	<article class="carousel-container">
 		<div class="nav-btn-right">
-			<div id="button-prev-3" class="carousel-btn prev-btn"
-				><button class="icon">
-					<svg
-						aria-hidden="true"
-						focusable="false"
-						viewBox="0 0 24 24"
-						role="img"
-						width="24px"
-						height="24px"
-						fill="none"
-						><path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967"
-						></path></svg
+			<div id="button-prev-3" class="carousel-btn prev-btn">
+				<button class="icon icon-right">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+						><path
+							d="M15.293 3.293 6.586 12l8.707 8.707 1.414-1.414L9.414 12l7.293-7.293-1.414-1.414z"
+						/></svg
 					>
-				</button></div
-			>
-			<div id="button-next-3" class="carousel-btn next-btn"
-				><button class="icon">
-					<svg
-						aria-hidden="true"
-						focusable="false"
-						viewBox="0 0 24 24"
-						role="img"
-						width="24px"
-						height="24px"
-						fill="none"
-						><path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033"
-						></path></svg
+				</button>
+			</div>
+			<div id="button-next-3" class="carousel-btn next-btn">
+				<button class="icon icon-right">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+						><path
+							d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"
+						/></svg
 					>
-				</button></div
-			>
+				</button>
+			</div>
 		</div>
 		<div id="voorbeeld-3">
 			<div class="carrousel-a">
@@ -317,7 +281,16 @@
 		border: none;
 	}
 
-	.icon:hover {
+	.icon-left {
+		background-color: #e5e5e5;
+	}
+
+	.icon-left:hover {
+		background-color: #cecece;
+		transition: 0.5s;
+	}
+
+	.icon-right:hover {
 		background-color: #e5e5e5;
 		transition: 0.5s;
 	}
@@ -393,7 +366,6 @@
 		color: var(--primary-dark-color);
 		text-decoration: none;
 	}
-	
 
 	span {
 		color: var(--primary-accent-color);
