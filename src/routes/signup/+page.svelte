@@ -1,66 +1,31 @@
 <section>
 	<form>
 		<h1>Word lid</h1>
+		<h3>Registreren</h3>
 		<fieldset>
-			<legend>Persoonlijke Gegevens</legend>
+			<legend>Vul hier je persoonlijke gegevens in:</legend>
 			<label for="Geslacht">Geslacht</label>
-			<input id="Geslacht" required type="text" />
+			<input id="Geslacht" required type="text" placeholder="Geslacht" />
 
 			<label for="Voormaan">Voornaam*</label>
-			<input id="Voornaam" required type="text" />
+			<input id="Voornaam" required type="text" placeholder="Voornaam" />
 			<p class="feedback">👍</p>
 
 			<label for="Tussenvoegsel">Tussenvoegsel</label>
-			<input id="Tussenvoegsel" />
+			<input id="Tussenvoegsel" required type="text" placeholder="Tussenvoegsel" />
 			<p class="feedback">👍</p>
 
 			<label for="Achternaam">Achternaam*</label>
-			<input id="Achternaam" required type="text" />
+			<input id="Achternaam" required type="text" placeholder="Achternaam" />
 			<p class="feedback">👍</p>
 
 			<label for="Geboortedatum">Geboortedatum*</label>
-			<input id="Geboortedatum" required type="text" />
+			<input id="Geboortedatum" required type="text" placeholder="Geboortedatum" />
 			<p class="feedback">👍</p>
-		</fieldset>
-
-		<fieldset>
-			<legend>Contact Gegevens</legend>
-			<label for="Adres">Adres (straat en huisnummer)*</label>
-			<input id="Adres" required type="text" />
-
-			<label for="Postcode">Postcode (formaat: 1000 AA)*</label>
-			<input id="Postcode" required type="text" />
-			<p class="feedback">👍</p>
-
-			<label for="Woonplaats">Woonplaats*</label>
-			<input id="Woonplaats" required type="text" />
-			<p class="feedback">👍</p>
-
-			<label for="Emailadres">E-mailadres*</label>
-			<input id="Emailadres" required type="text" />
-			<p class="feedback">👍</p>
-
-			<label for="Emailadres">Bevestiging E-mailadres*</label>
-			<input id="Emailadres" required type="text" />
-			<p class="feedback">👍</p>
-
-			<label for="Telefoon">Telefoon*</label>
-			<input id="Telefoon" required type="text" />
-			<p class="feedback">👍</p>
-		</fieldset>
-
-		<fieldset>
-			<legend>Automatische incasso</legend>
-			<label for="IBAN">IBAN (voorbeeld: NL11 INGB 1234 5678 90)</label>
-			<input id="IBAN" required type="text" />
-
-			<label for="Benaming">Op naam van</label>
-			<input id="Benaming" required type="text" />
-			<p class="feedback">👍</p>
-		</fieldset>
-
-		<fieldset>
-			<a href="/">WORD LID</a>
+			<article>
+				<a href="/login" type="submit2">Terug</a>
+				<input type="submit" value="Registreer" />
+			</article>
 		</fieldset>
 	</form>
 </section>
@@ -70,12 +35,63 @@
 	}
 
 	section {
-		min-height: 100vh;
-		margin-bottom: 2rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
 	}
 
 	h1 {
 		padding-left: 0.5rem;
+		text-align: center;
+	}
+	h3 {
+		padding-left: 0.5rem;
+		text-align: center;
+	}
+
+	a {
+		color: black;
+		padding: 14px 20px;
+		margin: 8px 0;
+		text-align: center;
+	}
+
+	article {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 1rem;
+	}
+
+	input[type='submit'] {
+		width: fit-content;
+		background-color: var(--primary-dark-color);
+		color: var(--primary-light-color);
+		padding: 14px 20px;
+		margin: 8px 0 8px 0;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		text-align: center;
+		font-size: 0.9rem;
+	}
+
+	input[type='text'] {
+		text-align: left;
+		width: 100%;
+		padding: 10px 10px;
+		margin: 8px 0;
+		display: inline-block;
+		border-radius: 4px;
+		box-sizing: border-box;
+		background-color: #f5f5f5;
+		border: 1px solid #b3b3b3;
+		line-height: normal;
+	}
+
+	input[type='text']:focus {
+		border: 1px solid black;
+		box-shadow: none;
 	}
 
 	form {
@@ -85,10 +101,13 @@
 		max-width: 30rem;
 		margin: 0 auto;
 		overflow: hidden;
+		background-color: white;
+		border: 3px solid black;
+		border-radius: 10px;
+		padding: 2.5rem;
+		width: 40rem;
 	}
-	form:invalid {
-		background: var(--oba-light-blue);
-	}
+
 	fieldset {
 		display: flex;
 		flex-direction: column;
@@ -98,59 +117,35 @@
 		transition: all 0.2s;
 		padding: 1em 1em 0;
 		position: relative;
-		background-color: var(--oba-red);
-		color: var(--primary-accent-color);
 		border-radius: 1em;
+		margin-top: 35px;
 	}
+
 	fieldset + fieldset {
 		opacity: 0;
 		transition: 0.25s 0.25s;
 		transform: translateX(-120%);
 	}
+
 	fieldset:valid + fieldset {
 		opacity: 1;
 		transform: translateX(0);
 	}
+
 	fieldset:valid p {
 		display: block;
 		color: White;
-		background: seaGreen;
 	}
 
 	fieldset:invalid p {
 		display: none;
 	}
-	legend {
-		font-weight: bold;
-		transform: translateY(1.5rem);
-		font-size: 1.5em;
-		margin-bottom: 2rem;
-		position: relative;
-		z-index: 5;
-		color: var(--primary-dark-color);
-	}
 
 	label {
-		font-weight: bolder;
+		display: block;
+		margin-bottom: 5px;
 	}
-	input {
-		border-color: #000;
-		padding: 0.25em;
-		font-size: 1.25em;
-		margin-bottom: 1em;
-		width: 100%;
-		transition: all 0.1 s;
-		z-index: 2;
-		border-radius: 0.5em;
-	}
-	input:valid {
-		border-color: seaGreen;
-		background-color: rgb(232, 245, 233);
-	}
-	input:invalid {
-		border-color: var(--oba-ligh);
-		/* background: rgba(255, 224, 13, .2); */
-	}
+
 	input:focus {
 		transform: scale(1.01, 1.01);
 		outline: none;
@@ -181,17 +176,5 @@
 	}
 	fieldset:valid .feedback {
 		transform: translateY(0);
-	}
-
-	a:link,
-	a:visited {
-		background-color: var(--primary-accent-color);
-		border-radius: 0.5em;
-		color: var(--primary-light-color);
-		padding: 14px 25px;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-weight: bold;
 	}
 </style>

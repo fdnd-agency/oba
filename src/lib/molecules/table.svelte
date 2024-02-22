@@ -65,6 +65,7 @@
 	.overview {
 		overflow: hidden;
 		height: 270px;
+		transition: all 0.3s ease;
 	}
 
 	.btn-arrow-up {
