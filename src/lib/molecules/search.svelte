@@ -97,14 +97,14 @@
 </section>
 
 <style>
-  .card-data:hover {
-    background-color: var(--primary-light-color);
-    padding: 0.5rem;
-  }
+	.card-data:hover {
+		background-color: var(--primary-light-color);
+		padding: 0.5rem;
+	}
 
-  .card-data:hover p{
-    color: rgb(61, 61, 61);
-  }
+	.card-data:hover p {
+		color: rgb(61, 61, 61);
+	}
 
 	.button {
 		all: unset;
@@ -136,8 +136,8 @@
 		overflow-y: auto;
 		z-index: 999;
 		margin-top: 1.1rem;
-    opacity: 97%;
-    background: var(--primary-accent-color);
+		opacity: 97%;
+		background: var(--primary-accent-color);
 	}
 
 	form {
@@ -175,7 +175,7 @@
 	}
 
 	ul {
-    padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+		padding: 2.5rem 1.5rem 1.5rem 1.5rem;
 	}
 
 	a {
@@ -199,7 +199,7 @@
 		align-items: center;
 		gap: 1rem;
 		margin-bottom: 0.5rem;
-    transition: all 0.3s ease;
+		transition: all 0.3s ease;
 	}
 	span {
 		font-weight: 700;

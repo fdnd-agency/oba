@@ -5,22 +5,19 @@ import { PUBLIC_API_KEY } from '$env/static/public';
 export async function load() {
 	const publicKey = PUBLIC_API_KEY;
 
-	const space = '%20';
-	const bookItems = 'boeken';
-	const EbookItems = 'e-books';
-	const audioItems = 'luisterboeken';
-	const urlSearch = 'search/';
-	const urlBase = 'https://zoeken.oba.nl/api/v1/';
-	const urlQuery = '?q=';
-	const urlDefault = 'special:all';
-	const urlKey = `&authorization=${publicKey}`;
-	const urlOutput = '&refine=true&output=json';
-	const defaultUrlBooks =
-		urlBase + urlSearch + urlQuery + urlDefault + space + bookItems + urlKey + urlOutput;
-	const defaultUrleBooks =
-		urlBase + urlSearch + urlQuery + urlDefault + space + EbookItems + urlKey + urlOutput;
-	const defaultUrlAudioBooks =
-		urlBase + urlSearch + urlQuery + urlDefault + space + audioItems + urlKey + urlOutput;
+    const space = "%20";
+    const bookItems = "boeken";
+    const EbookItems = "e-books";
+    const audioItems = "luisterboeken";
+    const urlSearch = "search/";
+    const urlBase = "https://zoeken.oba.nl/api/v1/";
+    const urlQuery = "?q=";
+    const urlDefault = "special:all";
+    const urlKey = `&facet=pubyear(2022)&authorization=${publicKey}`;
+    const urlOutput = "&refine=true&output=json";
+    const defaultUrlBooks = urlBase + urlSearch + urlQuery + urlDefault + space + bookItems + urlKey + urlOutput;
+    const defaultUrleBooks = urlBase + urlSearch + urlQuery + urlDefault + space + EbookItems + urlKey + urlOutput;
+    const defaultUrlAudioBooks = urlBase + urlSearch + urlQuery + urlDefault + space + audioItems + urlKey + urlOutput;
 
 	const responseBooks = await fetch(defaultUrlBooks);
 

@@ -31,7 +31,7 @@ export async function load() {
 	const urlBase = 'https://zoeken.oba.nl/api/v1/';
 	const urlQuery = '?q=';
 	const urlDefault = 'special:all';
-	const urlKey = `&authorization=${publicKey}`;
+	const urlKey = `&facet=pubyear(2022)&authorization=${publicKey}`;
 	const urlOutput = '&refine=true&output=json';
 	const defaultUrlBooks =
 		urlBase + urlSearch + urlQuery + urlDefault + space + bookItems + urlKey + urlOutput;
