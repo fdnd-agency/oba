@@ -54,6 +54,21 @@
 			var el = document.querySelector('#voorbeeld-3 .carrousel-a');
 			el.scrollBy({ left: 200 });
 		});
+
+		// Slider 4: Jouw recente leeslijst: luisterboeken
+		var prevButton = document.getElementById('button-prev-4');
+
+		prevButton.addEventListener('click', function () {
+			var el = document.querySelector('#voorbeeld-4 .carrousel-a');
+			el.scrollBy({ left: -1 * 200 });
+		});
+
+		var nextButton = document.getElementById('button-next-4');
+
+		nextButton.addEventListener('click', function () {
+			var el = document.querySelector('#voorbeeld-4 .carrousel-a');
+			el.scrollBy({ left: 200 });
+		});
 	});
 </script>
 
@@ -218,18 +233,40 @@
 		</h2>
 		<p>{homepage[4].homepageText}</p>
 	</article>
-	<article class="centerCarousel">
-		{#each hygraphData.activiteitens.slice(0, 5) as activiteiten}
-			<a href={activiteiten.activiteitLink}>
-				<img
-					src={activiteiten.activiteitImage.url}
-					alt={activiteiten.activiteitNaam}
-					width="300"
-					height="200"
-				/>
-				<h3>{activiteiten.activiteitNaam}</h3>
-			</a>
-		{/each}
+	<article class="nav-btn-center">
+		<div id="button-prev-4" class="carousel-btn prev-btn">
+			<button class="icon icon-right">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+					><path
+						d="M15.293 3.293 6.586 12l8.707 8.707 1.414-1.414L9.414 12l7.293-7.293-1.414-1.414z"
+					/></svg
+				>
+			</button>
+		</div>
+		<div id="button-next-4" class="carousel-btn next-btn">
+			<button class="icon icon-right">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+					><path
+						d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"
+					/></svg
+				>
+			</button>
+		</div>
+	</article>
+	<article id="voorbeeld-4" class="centerCarousel">
+		<div class="carrousel-a">
+			{#each hygraphData.activiteitens.slice(0, 5) as activiteiten}
+				<a href={activiteiten.activiteitLink}>
+					<img
+						src={activiteiten.activiteitImage.url}
+						alt={activiteiten.activiteitNaam}
+						width="300"
+						height="200"
+					/>
+					<h3>{activiteiten.activiteitNaam}</h3>
+				</a>
+			{/each}
+		</div>
 	</article>
 	<LinkButton buttonText="Meer bekijken" buttonLink="https://www.oba.nl/" />
 </section>
@@ -255,6 +292,13 @@
 
 	.carrousel-a {
 		scrollbar-width: none;
+	}
+
+	.nav-btn-center {
+		width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
 	}
 
 	.nav-btn-left {
@@ -435,6 +479,7 @@
 			scroll-snap-type: x mandatory;
 			scroll-behavior: smooth;
 			animation-name: tostart;
+			scrollbar-width: none;
 		}
 		.centerCarousel a {
 			text-decoration: none;
