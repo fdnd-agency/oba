@@ -75,9 +75,7 @@
 	<article class="logo">
 		<img class="logo-img" src={Logo} alt="oba logo" />
 	</article>
-</section>
-
-<Carousel />
+</section>	
 
 <section>
 	<article>
