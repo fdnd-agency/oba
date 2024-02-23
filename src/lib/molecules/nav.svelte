@@ -142,6 +142,22 @@
     }
     .hamburger1{
         width: 5rem;
+        margin-left: 12px;
+    }
+    section {
+    position: relative;
+  }
+}
+  @media only screen and (max-width: 650px) {
+    .hamburger1{
+        margin-left: 12px;
+        border-radius: 0px 0 0px 10px;
+    }
+    section {
+      left: 0;
+    }
+    .menu1 {
+      border-radius: 0%;
     }
 }
   </style>

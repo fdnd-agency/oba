@@ -216,4 +216,16 @@
 		justify-content: space-between;
 		position: sticky;
 	}
+
+	@media only screen and (max-width: 650px) {
+    .button{
+        border-radius: 0px 0 10px 0px;
+    }
+    .model{
+        width: 100vw;
+		left: 0;
+		border-radius: 0;
+    }
+}
 </style>
+	
