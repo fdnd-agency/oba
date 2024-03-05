@@ -1,6 +1,8 @@
 :root {
 	/* die blauw ipv rood, gebruikt voor span */
 	--primary-accent-color: #0064c8;
+	/* die blauw ipv rood, gebruikt voor span */
+	--primary-accent-color-btn: #0064c8;
 	/* achtergrondkleur website */
 	--primary-background-color: #f2f5ff;
 	/* net niet zwart, voor achtergrond kleur buttons en primary tekst kleur */
@@ -13,6 +15,12 @@
 
 body {
 	background-color: var(--primary-background-color);
+}
+
+.dark{
+	--primary-accent-color: #ff0000;
+	--primary-background-color: #F0F0F0;
+	--primary-accent-color-btn: #000000;
 }
 
 * {
@@ -54,3 +62,5 @@ p {
 		font-size: 1.1em;
 	}
 }
+
+

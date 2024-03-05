@@ -4,6 +4,19 @@
     const results = data.results
     import { Card, Nav, Search} from '$lib/index.js'
 
+	import { onMount } from 'svelte';
+    
+	onMount(() => {
+		// Thema switch
+		const body = document.querySelector('body'),
+			toggle = document.querySelector('.toggle');
+
+		let getMode = localStorage.getItem('mode');
+		if (getMode && getMode === 'dark') {
+			body?.classList.add('dark');
+			toggle?.classList.add('active');
+		}
+	});
 </script>
 
 <header>

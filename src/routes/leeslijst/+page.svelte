@@ -1,7 +1,20 @@
 <script>
 	import { Card, Nav, Search } from '$lib/index.js';
+	import { onMount } from 'svelte';
+
 	export let data;
 
+	onMount(() => {
+		// Thema switch
+		const body = document.querySelector('body'),
+			toggle = document.querySelector('.toggle');
+
+		let getMode = localStorage.getItem('mode');
+		if (getMode && getMode === 'dark') {
+			body?.classList.add('dark');
+			toggle?.classList.add('active');
+		}
+	});
 </script>
 
 <header>
@@ -16,7 +29,7 @@
 	<details>
 		<summary>Boeken</summary>
 		<section>
-			{#each data.apiBooks.results.slice(0, 15)  as book}
+			{#each data.apiBooks.results.slice(0, 15) as book}
 				<Card
 					bookAuthor={book.authors}
 					bookTitle={book.titles}
@@ -27,7 +40,7 @@
 		</section>
 	</details>
 
-    <section class="overview">
+	<section class="overview">
 		{#each data.apiBooks.results.slice(-5) as book}
 			<Card
 				bookAuthor={book.authors}
@@ -41,7 +54,7 @@
 	<details>
 		<summary>E-books</summary>
 		<section>
-			{#each data.apiEBooks.results.slice(0, 15)  as book}
+			{#each data.apiEBooks.results.slice(0, 15) as book}
 				<Card
 					bookAuthor={book.authors}
 					bookTitle={book.titles}
@@ -52,7 +65,7 @@
 		</section>
 	</details>
 
-    <section class="overview">
+	<section class="overview">
 		{#each data.apiEBooks.results.slice(-5) as book}
 			<Card
 				bookAuthor={book.authors}
@@ -66,7 +79,7 @@
 	<details>
 		<summary>Luisterboeken</summary>
 		<section>
-			{#each data.apiAudioBooks.results.slice(0, 15)  as book}
+			{#each data.apiAudioBooks.results.slice(0, 15) as book}
 				<Card
 					bookAuthor={book.authors}
 					bookTitle={book.titles}
@@ -77,7 +90,7 @@
 		</section>
 	</details>
 
-    <section class="overview">
+	<section class="overview">
 		{#each data.apiAudioBooks.results.slice(-5) as book}
 			<Card
 				bookAuthor={book.authors}
@@ -102,7 +115,7 @@
 		</section>
 	</details>
 
-    <section class="overview">
+	<section class="overview">
 		{#each data.apiBooks.results.slice(-5) as book}
 			<Card
 				bookAuthor={book.authors}
@@ -122,9 +135,9 @@
 		padding: 2rem;
 	}
 
-    .overview {
-        padding-left: 4.4rem;
-    }
+	.overview {
+		padding-left: 4.4rem;
+	}
 
 	summary {
 		font-size: 1.8rem;

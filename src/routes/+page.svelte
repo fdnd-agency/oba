@@ -1,6 +1,6 @@
 <script>
 	// Hier import ik de components die nodig zijn in deze pagina
-	import { Card, LinkButton, Logo, Search, Nav, Carousel } from '$lib/index.js';
+	import { Card, LinkButton, Logo, Logo2, Search, Nav, Carousel } from '$lib/index.js';
 	import { onMount } from 'svelte';
 
 	export let data;
@@ -69,11 +69,13 @@
 			var el = document.querySelector('#voorbeeld-4 .carrousel-a');
 			el.scrollBy({ left: 200 });
 		});
+
+		
 	});
 </script>
 
 <header>
-	<Nav />
+	<Nav {Logo} {Logo2}/>
 	<Search
 		cardData={data.apiBooks.results.concat(data.apiEBooks.results, data.apiAudioBooks.results)}
 	/>
@@ -88,7 +90,7 @@
 		<p>{homepage[0].homepageText}</p>
 	</article>
 	<article class="logo">
-		<img class="logo-img" src={Logo} alt="oba logo" />
+		<img id="icon" class="logo-img" src={Logo} alt="oba logo" />
 	</article>
 </section>
 
@@ -272,6 +274,15 @@
 </section>
 
 <style>
+	
+	body {
+		height: 1000px;
+	}
+
+	.dark {
+		background-color: #18191a;
+		color: white;
+	}
 	.carrousel-a {
 		display: flex;
 		gap: 15px;
@@ -296,9 +307,9 @@
 
 	.nav-btn-center {
 		width: 100%;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
+		padding: 10px;
+		display: flex;
+		justify-content: center;
 	}
 
 	.nav-btn-left {
