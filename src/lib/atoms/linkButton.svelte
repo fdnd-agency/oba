@@ -10,7 +10,7 @@
         padding: 1em 2em;
         border: none;
 
-        background-color: var(--primary-accent-color);
+        background-color: var(--primary-accent-color-btn);
         color: var(--primary-light-color);
         text-align: center;
         text-decoration: none;

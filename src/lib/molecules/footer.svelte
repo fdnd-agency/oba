@@ -1,5 +1,5 @@
 <script>
-    import { LinkButton, Logo } from '$lib/index.js'
+    import { LinkButton, LogoBlue } from '$lib/index.js'
 </script>
 <footer>
     <article>
@@ -13,7 +13,7 @@
     </article>
     <article>
         <a href="/">
-            <img src="{Logo}" alt="oba logo" width="200">
+            <img src="{LogoBlue}" alt="oba logo" width="200">
         </a>
     </article>
 </footer>

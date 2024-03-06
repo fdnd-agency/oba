@@ -13,7 +13,7 @@
         justify-content: center;
         padding: 1em 2em;
         border: none;
-        background-color: var(--primary-accent-color);
+        background-color: var(--primary-accent-color-btn);
         color: var(--primary-light-color);
         text-decoration: none;
         border-radius: .25rem;

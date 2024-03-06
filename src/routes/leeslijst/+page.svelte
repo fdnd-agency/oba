@@ -1,6 +1,9 @@
 <script>
 	import { Card, Nav, Search } from '$lib/index.js';
+	import { onMount } from 'svelte';
+
 	export let data;
+
 </script>
 
 <header>
@@ -14,6 +17,7 @@
 
 	<details>
 		<summary>Boeken</summary>
+
 		<section class="grid">
 			{#each data.apiBooks.results.slice(0, 15) as book}
 				<Card
@@ -25,6 +29,7 @@
 			{/each}
 		</section>
 	</details>
+
 
 	<section class="overview grid">
 		{#each data.apiBooks.results.slice(-5) as book}
@@ -39,6 +44,7 @@
 
 	<details>
 		<summary>E-books</summary>
+
 		<section class="grid">
 			{#each data.apiEBooks.results.slice(0, 15) as book}
 				<Card
@@ -50,6 +56,7 @@
 			{/each}
 		</section>
 	</details>
+
 
 	<section class="overview grid">
 		{#each data.apiEBooks.results.slice(-5) as book}
@@ -64,6 +71,7 @@
 
 	<details>
 		<summary>Luisterboeken</summary>
+
 		<section class="flex">
 			{#each data.apiAudioBooks.results.slice(0, 15) as book}
 				<Card
@@ -75,6 +83,7 @@
 			{/each}
 		</section>
 	</details>
+
 
 	<section class=" flex">
 		{#each data.apiAudioBooks.results.slice(-5) as book}
@@ -100,6 +109,7 @@
 			{/each}
 		</section>
 	</details>
+
 
 	<section class="overview grid">
 		{#each data.apiBooks.results.slice(-5) as book}

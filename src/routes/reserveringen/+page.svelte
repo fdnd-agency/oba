@@ -1,6 +1,20 @@
 <script>
 	import { ReservationCard, Nav, Search } from '$lib/index.js';
 	export let data;
+
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		// Thema switch
+		const body = document.querySelector('body'),
+			toggle = document.querySelector('.toggle');
+
+		let getMode = localStorage.getItem('mode');
+		if (getMode && getMode === 'dark') {
+			body?.classList.add('dark');
+			toggle?.classList.add('active');
+		}
+	});
 </script>
 
 <header>
@@ -30,20 +44,7 @@
 	<details>
 		<summary>Boeken</summary>
 		<section>
-				{#each data.hygraphData.uitleengeschiedenis1.slice(0 , 5) as book}
-					<ReservationCard
-						bookDetailLink={book.detailLink}
-						bookUrl={book.image.url}
-						bookTitle={book.title}
-						bookAuthor={book.author}
-						bookStatus={book.beschikbaarheid}
-					/>
-				{/each}
-		</section>
-	</details>
-
-	<section class="overview">
-			{#each data.hygraphData.uitleengeschiedenis1.slice(0 , 5) as book}
+			{#each data.hygraphData.uitleengeschiedenis1.slice(0, 5) as book}
 				<ReservationCard
 					bookDetailLink={book.detailLink}
 					bookUrl={book.image.url}
@@ -52,25 +53,25 @@
 					bookStatus={book.beschikbaarheid}
 				/>
 			{/each}
+		</section>
+	</details>
+
+	<section class="overview">
+		{#each data.hygraphData.uitleengeschiedenis1.slice(0, 5) as book}
+			<ReservationCard
+				bookDetailLink={book.detailLink}
+				bookUrl={book.image.url}
+				bookTitle={book.title}
+				bookAuthor={book.author}
+				bookStatus={book.beschikbaarheid}
+			/>
+		{/each}
 	</section>
 
 	<details>
 		<summary>E-books</summary>
 		<section>
-				{#each data.hygraphData.uitleengeschiedenis1.slice(0 , 5) as book}
-					<ReservationCard
-						bookDetailLink={book.detailLink}
-						bookUrl={book.image.url}
-						bookTitle={book.title}
-						bookAuthor={book.author}
-						bookStatus={book.beschikbaarheid}
-					/>
-				{/each}
-		</section>
-	</details>
-
-	<section class="overview">
-			{#each data.hygraphData.uitleengeschiedenis1.slice(0 , 5) as book}
+			{#each data.hygraphData.uitleengeschiedenis1.slice(0, 5) as book}
 				<ReservationCard
 					bookDetailLink={book.detailLink}
 					bookUrl={book.image.url}
@@ -79,26 +80,25 @@
 					bookStatus={book.beschikbaarheid}
 				/>
 			{/each}
+		</section>
+	</details>
+
+	<section class="overview">
+		{#each data.hygraphData.uitleengeschiedenis1.slice(0, 5) as book}
+			<ReservationCard
+				bookDetailLink={book.detailLink}
+				bookUrl={book.image.url}
+				bookTitle={book.title}
+				bookAuthor={book.author}
+				bookStatus={book.beschikbaarheid}
+			/>
+		{/each}
 	</section>
 
 	<details>
 		<summary>Luisterboeken</summary>
 		<section>
-				{#each data.hygraphData.uitleengeschiedenis1.slice(0 , 5) as book}
-					<ReservationCard
-						bookDetailLink={book.detailLink}
-						bookUrl={book.image.url}
-						bookTitle={book.title}
-						bookAuthor={book.author}
-						bookStatus={book.beschikbaarheid}
-					/>
-				{/each}
-		</section>
-	</details>
-
-	<section class="overview">
-
-			{#each data.hygraphData.uitleengeschiedenis1.slice(0 , 5) as book}
+			{#each data.hygraphData.uitleengeschiedenis1.slice(0, 5) as book}
 				<ReservationCard
 					bookDetailLink={book.detailLink}
 					bookUrl={book.image.url}
@@ -107,26 +107,25 @@
 					bookStatus={book.beschikbaarheid}
 				/>
 			{/each}
+		</section>
+	</details>
 
+	<section class="overview">
+		{#each data.hygraphData.uitleengeschiedenis1.slice(0, 5) as book}
+			<ReservationCard
+				bookDetailLink={book.detailLink}
+				bookUrl={book.image.url}
+				bookTitle={book.title}
+				bookAuthor={book.author}
+				bookStatus={book.beschikbaarheid}
+			/>
+		{/each}
 	</section>
 
 	<details>
 		<summary>Activiteiten</summary>
 		<section>
-				{#each data.hygraphData.uitleengeschiedenis1.slice(0 , 5) as book}
-					<ReservationCard
-						bookDetailLink={book.detailLink}
-						bookUrl={book.image.url}
-						bookTitle={book.title}
-						bookAuthor={book.author}
-						bookStatus={book.beschikbaarheid}
-					/>
-				{/each}
-		</section>
-	</details>
-
-	<section class="overview">
-			{#each data.hygraphData.uitleengeschiedenis1.slice(0 , 5) as book}
+			{#each data.hygraphData.uitleengeschiedenis1.slice(0, 5) as book}
 				<ReservationCard
 					bookDetailLink={book.detailLink}
 					bookUrl={book.image.url}
@@ -135,6 +134,19 @@
 					bookStatus={book.beschikbaarheid}
 				/>
 			{/each}
+		</section>
+	</details>
+
+	<section class="overview">
+		{#each data.hygraphData.uitleengeschiedenis1.slice(0, 5) as book}
+			<ReservationCard
+				bookDetailLink={book.detailLink}
+				bookUrl={book.image.url}
+				bookTitle={book.title}
+				bookAuthor={book.author}
+				bookStatus={book.beschikbaarheid}
+			/>
+		{/each}
 	</section>
 </main>
 
@@ -174,7 +186,6 @@
 		section {
 			gap: 2rem;
 			padding: 2rem;
-
 		}
 	}
 </style>
