@@ -1,6 +1,6 @@
 <script>
 	// Hier import ik de components die nodig zijn in deze pagina
-	import { Card, LinkButton, LogoBlue, LogoRed, LogoBlack, Search, Nav, Carousel } from '$lib/index.js';
+	import { Card, LinkButton, LogoBlue, LogoRed, LogoBlack, Search, Nav } from '$lib/index.js';
 	import { onMount } from 'svelte';
 
 	export let data;
@@ -93,8 +93,6 @@
 		<img id="icon" class="logo-img" src={LogoBlack} alt="oba logo" />
 	</article>
 </section>
-
-<Carousel />
 
 <section>
 	<article>
