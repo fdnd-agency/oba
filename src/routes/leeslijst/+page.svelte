@@ -4,17 +4,6 @@
 
 	export let data;
 
-	onMount(() => {
-		// Thema switch
-		const body = document.querySelector('body'),
-			toggle = document.querySelector('.toggle');
-
-		let getMode = localStorage.getItem('mode');
-		if (getMode && getMode === 'dark') {
-			body?.classList.add('dark');
-			toggle?.classList.add('active');
-		}
-	});
 </script>
 
 <header>
@@ -28,7 +17,8 @@
 
 	<details>
 		<summary>Boeken</summary>
-		<section>
+
+		<section class="grid">
 			{#each data.apiBooks.results.slice(0, 15) as book}
 				<Card
 					bookAuthor={book.authors}
@@ -40,7 +30,8 @@
 		</section>
 	</details>
 
-	<section class="overview">
+
+	<section class="overview grid">
 		{#each data.apiBooks.results.slice(-5) as book}
 			<Card
 				bookAuthor={book.authors}
@@ -53,7 +44,8 @@
 
 	<details>
 		<summary>E-books</summary>
-		<section>
+
+		<section class="grid">
 			{#each data.apiEBooks.results.slice(0, 15) as book}
 				<Card
 					bookAuthor={book.authors}
@@ -65,7 +57,8 @@
 		</section>
 	</details>
 
-	<section class="overview">
+
+	<section class="overview grid">
 		{#each data.apiEBooks.results.slice(-5) as book}
 			<Card
 				bookAuthor={book.authors}
@@ -78,7 +71,8 @@
 
 	<details>
 		<summary>Luisterboeken</summary>
-		<section>
+
+		<section class="flex">
 			{#each data.apiAudioBooks.results.slice(0, 15) as book}
 				<Card
 					bookAuthor={book.authors}
@@ -90,7 +84,8 @@
 		</section>
 	</details>
 
-	<section class="overview">
+
+	<section class=" flex">
 		{#each data.apiAudioBooks.results.slice(-5) as book}
 			<Card
 				bookAuthor={book.authors}
@@ -103,7 +98,7 @@
 
 	<details>
 		<summary>Activiteiten</summary>
-		<section>
+		<section class="grid">
 			{#each data.apiBooks.results.slice(0, 15) as book}
 				<Card
 					bookAuthor={book.authors}
@@ -115,7 +110,8 @@
 		</section>
 	</details>
 
-	<section class="overview">
+
+	<section class="overview grid">
 		{#each data.apiBooks.results.slice(-5) as book}
 			<Card
 				bookAuthor={book.authors}
@@ -131,6 +127,13 @@
 	main {
 		min-height: 100vh;
 	}
+
+	.flex {
+		display: flex;
+		padding-left: 90px;
+		gap: 4rem;
+	}
+
 	h1 {
 		padding: 2rem;
 	}
@@ -152,7 +155,7 @@
 		padding-left: 2rem;
 	}
 
-	section {
+	.grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
 		justify-items: center;
@@ -163,6 +166,14 @@
 		section {
 			gap: 2rem;
 			padding: 2rem;
+		}
+	}
+	@media (max-width: 1035px) {
+		.flex {
+			display: grid;
+			gap: 0;
+			grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+			justify-items: center;
 		}
 	}
 </style>
