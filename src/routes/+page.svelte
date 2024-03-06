@@ -92,7 +92,9 @@
 	<article class="logo">
 		<img id="icon" class="logo-img" src={LogoBlack} alt="oba logo" />
 	</article>
-</section>	
+</section>
+
+<Carousel />
 
 <section>
 	<article>
