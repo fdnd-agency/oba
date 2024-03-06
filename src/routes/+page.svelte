@@ -1,6 +1,6 @@
 <script>
 	// Hier import ik de components die nodig zijn in deze pagina
-	import { Card, LinkButton, Logo, Logo2, Search, Nav, Carousel } from '$lib/index.js';
+	import { Card, LinkButton, LogoBlue, LogoRed, LogoBlack, Search, Nav, Carousel } from '$lib/index.js';
 	import { onMount } from 'svelte';
 
 	export let data;
@@ -75,7 +75,7 @@
 </script>
 
 <header>
-	<Nav {Logo} {Logo2}/>
+	<Nav/>
 	<Search
 		cardData={data.apiBooks.results.concat(data.apiEBooks.results, data.apiAudioBooks.results)}
 	/>
@@ -90,7 +90,7 @@
 		<p>{homepage[0].homepageText}</p>
 	</article>
 	<article class="logo">
-		<img id="icon" class="logo-img" src={Logo} alt="oba logo" />
+		<img id="icon" class="logo-img" src={LogoBlack} alt="oba logo" />
 	</article>
 </section>
 
