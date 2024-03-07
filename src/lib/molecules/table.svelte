@@ -1,6 +1,14 @@
 <script>
 	export let tableData;
 
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		// PE Zet iets uit wanner Javascript niet werkt
+		const icon = document.querySelector('.disable-js');
+		icon?.classList.toggle('disable-js');
+	});
+
 	function countClicks() {
 		document.getElementById('overview').style.height = '100%';
 		document.getElementById('btn-arrow-down').style.display = 'none';
@@ -41,25 +49,27 @@
 	</table>
 </section>
 
-<section class="btn-arrow-down" id="btn-arrow-down">
-	<button class="arrow-svg" on:click={countClicks}
-		><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-			><path
-				d="M12 17.414 3.293 8.707l1.414-1.414L12 14.586l7.293-7.293 1.414 1.414L12 17.414z"
-			/></svg
-		></button
-	>
-</section>
+<div class="disable-js">
+	<section class="btn-arrow-down" id="btn-arrow-down">
+		<button class="arrow-svg" on:click={countClicks}
+			><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+				><path
+					d="M12 17.414 3.293 8.707l1.414-1.414L12 14.586l7.293-7.293 1.414 1.414L12 17.414z"
+				/></svg
+			></button
+		>
+	</section>
 
-<section class="btn-arrow-up" id="btn-arrow-up">
-	<button class="arrow-svg" on:click={countClicks2}
-		><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-			><path
-				d="m12 6.586-8.707 8.707 1.414 1.414L12 9.414l7.293 7.293 1.414-1.414L12 6.586z"
-			/></svg
-		></button
-	>
-</section>
+	<section class="btn-arrow-up" id="btn-arrow-up">
+		<button class="arrow-svg" on:click={countClicks2}
+			><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+				><path
+					d="m12 6.586-8.707 8.707 1.414 1.414L12 9.414l7.293 7.293 1.414-1.414L12 6.586z"
+				/></svg
+			></button
+		>
+	</section>
+</div>
 
 <style>
 	.overview {
@@ -101,6 +111,10 @@
 	.arrow-svg:hover {
 		background-color: #cecece;
 		transition: 0.5s;
+	}
+
+	.disable-js {
+		display: none;
 	}
 
 	table {
