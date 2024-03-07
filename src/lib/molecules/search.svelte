@@ -24,6 +24,10 @@
 
 		searchInput.addEventListener('input', submitted);
 
+		// PE Zet iets uit wanner Javascript niet werkt
+		const icon = document.querySelector('.disable-js');
+		icon?.classList.toggle('disable-js');
+
 		return () => {
 			// Cleanup event listener when component is unmounted
 			searchInput.removeEventListener('input', submitted);
@@ -50,7 +54,7 @@
 	}
 </script>
 
-<section>
+<section class="disable-js">
 	<div on:click={openDialog} class="button">
 		<form action="" on:submit={submitted}>
 			<input
@@ -217,15 +221,18 @@
 		position: sticky;
 	}
 
+	.disable-js {
+		display: none;
+	}
+
 	@media only screen and (max-width: 650px) {
-    .button{
-        border-radius: 0px 0 10px 0px;
-    }
-    .model{
-        width: 100vw;
-		left: 0;
-		border-radius: 0;
-    }
-}
+		.button {
+			border-radius: 0px 0 10px 0px;
+		}
+		.model {
+			width: 100vw;
+			left: 0;
+			border-radius: 0;
+		}
+	}
 </style>
-	

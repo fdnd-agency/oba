@@ -8,74 +8,45 @@
 	const hygraphData = data.hygraphData;
 	const homepage = hygraphData.homepages;
 
-	// Hier export ik de data zodat ik de data vanuit hygraph kan gebruiken die ik query in de page.server
+	// Hier maak ik carrousels dat ik vervolgens loop uit een array
 	onMount(() => {
-		// Slider 1: Jouw recente leeslijst: boeken
-		var prevButton = document.getElementById('button-prev-1');
+		const sliders = [
+			{ id: 1, selector: '#voorbeeld-1 .carrousel-a' },
+			{ id: 2, selector: '#voorbeeld-2 .carrousel-a' },
+			{ id: 3, selector: '#voorbeeld-3 .carrousel-a' },
+			{ id: 4, selector: '#voorbeeld-4 .carrousel-a' }
+		];
 
-		prevButton.addEventListener('click', function () {
-			var el = document.querySelector('#voorbeeld-1 .carrousel-a');
-			el.scrollBy({ left: -1 * 200 });
+		// Loop through each slider
+		sliders.forEach((slider) => {
+			const prevButton = document.getElementById(`button-prev-${slider.id}`);
+			const nextButton = document.getElementById(`button-next-${slider.id}`);
+			const el = document.querySelector(slider.selector);
+
+			// Add event listeners to prev and next buttons
+			prevButton.addEventListener('click', () => {
+				el.scrollBy({ left: -1 * 200 });
+			});
+
+			nextButton.addEventListener('click', () => {
+				el.scrollBy({ left: 200 });
+			});
 		});
 
-		var nextButton = document.getElementById('button-next-1');
+		// PE Zet iets uit wanner Javascript niet werkt
+		// Define array of class names
+		const classNames = ['.disable-js', '.disable-js-2', '.disable-js-3', '.disable-js-4'];
 
-		nextButton.addEventListener('click', function () {
-			var el = document.querySelector('#voorbeeld-1 .carrousel-a');
-			el.scrollBy({ left: 200 });
+		// Iterate over each class name
+		classNames.forEach((className) => {
+			const icon = document.querySelector(className);
+			icon?.classList.toggle(className.slice(1)); // Toggle class removing the dot
 		});
-
-		// Slider 2: Jouw recente leeslijst: e-boeken
-		var prevButton = document.getElementById('button-prev-2');
-
-		prevButton.addEventListener('click', function () {
-			var el = document.querySelector('#voorbeeld-2 .carrousel-a');
-			el.scrollBy({ left: -1 * 200 });
-		});
-
-		var nextButton = document.getElementById('button-next-2');
-
-		nextButton.addEventListener('click', function () {
-			var el = document.querySelector('#voorbeeld-2 .carrousel-a');
-			el.scrollBy({ left: 200 });
-		});
-
-		// Slider 3: Jouw recente leeslijst: luisterboeken
-		var prevButton = document.getElementById('button-prev-3');
-
-		prevButton.addEventListener('click', function () {
-			var el = document.querySelector('#voorbeeld-3 .carrousel-a');
-			el.scrollBy({ left: -1 * 200 });
-		});
-
-		var nextButton = document.getElementById('button-next-3');
-
-		nextButton.addEventListener('click', function () {
-			var el = document.querySelector('#voorbeeld-3 .carrousel-a');
-			el.scrollBy({ left: 200 });
-		});
-
-		// Slider 4: Jouw recente leeslijst: luisterboeken
-		var prevButton = document.getElementById('button-prev-4');
-
-		prevButton.addEventListener('click', function () {
-			var el = document.querySelector('#voorbeeld-4 .carrousel-a');
-			el.scrollBy({ left: -1 * 200 });
-		});
-
-		var nextButton = document.getElementById('button-next-4');
-
-		nextButton.addEventListener('click', function () {
-			var el = document.querySelector('#voorbeeld-4 .carrousel-a');
-			el.scrollBy({ left: 200 });
-		});
-
-		
 	});
 </script>
 
 <header>
-	<Nav/>
+	<Nav />
 	<Search
 		cardData={data.apiBooks.results.concat(data.apiEBooks.results, data.apiAudioBooks.results)}
 	/>
@@ -90,7 +61,7 @@
 		<p>{homepage[0].homepageText}</p>
 	</article>
 	<article class="logo">
-		<img id="icon" class="logo-img" src={LogoBlack} alt="oba logo" />
+		<img class="logo-img" src={LogoBlack} alt="oba logo" />
 	</article>
 </section>
 
@@ -102,24 +73,26 @@
 	</article>
 
 	<article class="carousel-container">
-		<div class="nav-btn-right">
-			<div id="button-prev-1" class="carousel-btn prev-btn">
-				<button class="icon icon-right">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-						><path
-							d="M15.293 3.293 6.586 12l8.707 8.707 1.414-1.414L9.414 12l7.293-7.293-1.414-1.414z"
-						/></svg
-					>
-				</button>
-			</div>
-			<div id="button-next-1" class="carousel-btn next-btn">
-				<button class="icon icon-right">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-						><path
-							d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"
-						/></svg
-					>
-				</button>
+		<div class="disable-js">
+			<div class="nav-btn-right">
+				<div id="button-prev-1" class="carousel-btn prev-btn">
+					<button class="icon icon-right">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+							><path
+								d="M15.293 3.293 6.586 12l8.707 8.707 1.414-1.414L9.414 12l7.293-7.293-1.414-1.414z"
+							/></svg
+						>
+					</button>
+				</div>
+				<div id="button-next-1" class="carousel-btn next-btn">
+					<button class="icon icon-right">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+							><path
+								d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"
+							/></svg
+						>
+					</button>
+				</div>
 			</div>
 		</div>
 		<div id="voorbeeld-1">
@@ -147,24 +120,26 @@
 	</article>
 
 	<article class="carousel-container">
-		<div class="nav-btn-left">
-			<div id="button-prev-2" class="carousel-btn prev-btn">
-				<button class="icon icon-left">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-						><path
-							d="M15.293 3.293 6.586 12l8.707 8.707 1.414-1.414L9.414 12l7.293-7.293-1.414-1.414z"
-						/></svg
-					>
-				</button>
-			</div>
-			<div id="button-next-2" class="carousel-btn next-btn">
-				<button class="icon icon-left">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-						><path
-							d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"
-						/></svg
-					>
-				</button>
+		<div class="disable-js-2">
+			<div class="nav-btn-left">
+				<div id="button-prev-2" class="carousel-btn prev-btn">
+					<button class="icon icon-left">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+							><path
+								d="M15.293 3.293 6.586 12l8.707 8.707 1.414-1.414L9.414 12l7.293-7.293-1.414-1.414z"
+							/></svg
+						>
+					</button>
+				</div>
+				<div id="button-next-2" class="carousel-btn next-btn">
+					<button class="icon icon-left">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+							><path
+								d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"
+							/></svg
+						>
+					</button>
+				</div>
 			</div>
 		</div>
 		<div id="voorbeeld-2">
@@ -191,24 +166,26 @@
 		<LinkButton buttonText="Bekijk Leeslijst" buttonLink="/leeslijst" />
 	</article>
 	<article class="carousel-container">
-		<div class="nav-btn-right">
-			<div id="button-prev-3" class="carousel-btn prev-btn">
-				<button class="icon icon-right">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-						><path
-							d="M15.293 3.293 6.586 12l8.707 8.707 1.414-1.414L9.414 12l7.293-7.293-1.414-1.414z"
-						/></svg
-					>
-				</button>
-			</div>
-			<div id="button-next-3" class="carousel-btn next-btn">
-				<button class="icon icon-right">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-						><path
-							d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"
-						/></svg
-					>
-				</button>
+		<div class="disable-js-3">
+			<div class="nav-btn-right">
+				<div id="button-prev-3" class="carousel-btn prev-btn">
+					<button class="icon icon-right">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+							><path
+								d="M15.293 3.293 6.586 12l8.707 8.707 1.414-1.414L9.414 12l7.293-7.293-1.414-1.414z"
+							/></svg
+						>
+					</button>
+				</div>
+				<div id="button-next-3" class="carousel-btn next-btn">
+					<button class="icon icon-right">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+							><path
+								d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"
+							/></svg
+						>
+					</button>
+				</div>
 			</div>
 		</div>
 		<div id="voorbeeld-3">
@@ -233,26 +210,28 @@
 		</h2>
 		<p>{homepage[4].homepageText}</p>
 	</article>
-	<article class="nav-btn-center">
-		<div id="button-prev-4" class="carousel-btn prev-btn">
-			<button class="icon icon-right">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-					><path
-						d="M15.293 3.293 6.586 12l8.707 8.707 1.414-1.414L9.414 12l7.293-7.293-1.414-1.414z"
-					/></svg
-				>
-			</button>
-		</div>
-		<div id="button-next-4" class="carousel-btn next-btn">
-			<button class="icon icon-right">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-					><path
-						d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"
-					/></svg
-				>
-			</button>
-		</div>
-	</article>
+	<div class="disable-js-4">
+		<article class="nav-btn-center">
+			<div id="button-prev-4" class="carousel-btn prev-btn">
+				<button class="icon icon-right">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+						><path
+							d="M15.293 3.293 6.586 12l8.707 8.707 1.414-1.414L9.414 12l7.293-7.293-1.414-1.414z"
+						/></svg
+					>
+				</button>
+			</div>
+			<div id="button-next-4" class="carousel-btn next-btn">
+				<button class="icon icon-right">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+						><path
+							d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"
+						/></svg
+					>
+				</button>
+			</div>
+		</article>
+	</div>
 	<article id="voorbeeld-4" class="centerCarousel">
 		<div class="carrousel-a">
 			{#each hygraphData.activiteitens.slice(0, 5) as activiteiten}
@@ -272,7 +251,13 @@
 </section>
 
 <style>
-	
+	.disable-js,
+	.disable-js-2,
+	.disable-js-3,
+	.disable-js-4 {
+		display: none;
+	}
+
 	body {
 		height: 1000px;
 	}
@@ -281,6 +266,7 @@
 		background-color: #18191a;
 		color: white;
 	}
+	
 	.carrousel-a {
 		display: flex;
 		gap: 15px;

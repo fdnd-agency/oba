@@ -1,5 +1,13 @@
 <script>
-	import { Toggle} from '$lib/index.js';
+	import { Toggle } from '$lib/index.js';
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+
+		// PE Zet iets uit wanner Javascript niet werkt
+		const lastChild = document.querySelector('.last-child');
+		lastChild?.classList.toggle('last-child');
+	});
 </script>
 
 <section class="p-menu1">
@@ -17,16 +25,8 @@
 			<a class="link1" href="/uitleningen">Uitleningen</a>
 			<a class="link1" href="/reserveringen">Reserveringen</a>
 			<a class="link1" href="/betalingen">Betalingen</a>
-			<a class="link1" href="/login">Log uit</a>
+			<a class="link1 last-child" href="/login">Log uit</a>
 			<Toggle />
-			<!-- <div class="toggle-button-cover">
-				<div class="theme-title">Verander thema</div>
-				<div class="button r toggle" id="button-3">
-					<input type="checkbox" class="checkbox" />
-					<div class="knobs"></div>
-					<div class="layer"></div>
-				</div>
-			</div> -->
 		</nav>
 	</nav>
 </section>
@@ -68,7 +68,7 @@
 	.button {
 		position: relative;
 		width: 75px;
-    height: 36px;
+		height: 36px;
 		margin-left: 20px;
 		overflow: hidden;
 	}
@@ -93,13 +93,17 @@
 		z-index: 2;
 	}
 
+	.last-child{
+		padding-bottom: 40px;
+	}
+
 	.layer {
 		width: 100%;
 		background-color: #ebf7fc;
 		transition: 0.3s ease all;
 		z-index: 1;
 	}
-	
+
 	/* Button 3 */
 	#button-3 .knobs:before {
 		content: '';
@@ -232,13 +236,12 @@
 		margin-top: 40px;
 	}
 
-	.menu1 a:last-child {
+	.last-child {
 		margin-bottom: 40px;
 	}
 
 	.link1 {
 		width: 100%;
-		margin: 0;
 		padding: 10px 0;
 		font:
 			700 20px 'Oswald',

@@ -5,15 +5,7 @@
 	export let data;
 
 	onMount(() => {
-		// Thema switch
-		const body = document.querySelector('body'),
-			toggle = document.querySelector('.toggle');
 
-		let getMode = localStorage.getItem('mode');
-		if (getMode && getMode === 'dark') {
-			body?.classList.add('dark');
-			toggle?.classList.add('active');
-		}
 	});
 </script>
 

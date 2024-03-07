@@ -2,9 +2,8 @@
 	import { onMount } from 'svelte';
 
 	onMount(() => {
-		// Thema switch
-		const icon = document.getElementById('icon');
 
+		// Thema switch
 		const body = document.querySelector('body'),
 			toggle = document.querySelector('.toggle');
 
@@ -24,27 +23,26 @@
 		});
 
 		toggle.addEventListener('click', () => toggle.classList.toggle('active'));
-        
+
+		// PE Zet iets uit wanner Javascript niet werkt
+		const icon = document.querySelector('.disable-js');
+		icon?.classList.toggle('disable-js');
 	});
 </script>
 
-<!-- if (body.classList.contains('dark')) {
-  icon.src = "src/lib/assets/oba-logo-2.webp";
-} else {
-  icon.src = "src/lib/assets/oba-logo.webp";
-} -->
-
-<div class="toggle-button-cover">
-    <div class="theme-title">Verander thema</div>
-    <div class="button r toggle" id="button-3">
-        <input type="checkbox" class="checkbox" />
-        <div class="knobs"></div>
-        <div class="layer"></div>
-    </div>
+<div class="disable-js">
+	<div class="toggle-button-cover">
+		<div class="theme-title">Verander thema</div>
+		<div class="button r toggle" id="button-3">
+			<input type="checkbox" class="checkbox" />
+			<div class="knobs"></div>
+			<div class="layer"></div>
+		</div>
+	</div>
 </div>
 
 <style>
-    .theme-title {
+	.theme-title {
 		display: grid;
 		align-items: center;
 		margin: 0;
@@ -62,7 +60,7 @@
 		align-items: center;
 		position: relative;
 		width: 100%;
-		padding: 0px 0 30px 0;
+		padding: 0px 0 40px 0;
 		box-sizing: border-box;
 	}
 
@@ -78,7 +76,7 @@
 	.button {
 		position: relative;
 		width: 75px;
-    height: 36px;
+		height: 36px;
 		margin-left: 20px;
 		overflow: hidden;
 	}
@@ -103,13 +101,18 @@
 		z-index: 2;
 	}
 
+	.disable-js {
+		display: none;
+	}
+
+
 	.layer {
 		width: 100%;
 		background-color: #ebf7fc;
 		transition: 0.3s ease all;
 		z-index: 1;
 	}
-	
+
 	/* Button 3 */
 	#button-3 .knobs:before {
 		content: '';
