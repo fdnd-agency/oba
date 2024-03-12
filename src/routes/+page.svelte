@@ -281,10 +281,6 @@
 		scroll-snap-type: x mandatory;
 	}
 
-	.carrousel-picture {
-		scroll-snap-align: center;
-	}
-
 	.carrousel-a {
 		scrollbar-width: none;
 	}
