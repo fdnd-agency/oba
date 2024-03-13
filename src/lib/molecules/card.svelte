@@ -22,7 +22,7 @@
 
 <a href={bookDetailLink}>
 	<article
-		class="background-image carrousel-picture skeleton"
+		class="background-image carrousel-picture"
 		style="background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5)), url('{bookUrl}');"
 	>
 		<!-- In de html elementen benoem ik lege js variabeles en deze geef ik leeg mee aan de pagina waar dit component wordt gebruikt -->
