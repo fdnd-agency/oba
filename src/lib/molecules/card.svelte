@@ -10,13 +10,13 @@
 
 	onMount(() => {
 		// Loading skeleton
-		const allSkeleton = document.querySelectorAll('.skeleton');
+		// const allSkeleton = document.querySelectorAll('.skeleton');
 
-		window.addEventListener('load', function () {
-			allSkeleton.forEach((item) => {
-				item.classList.remove('skeleton');
-			});
-		});
+		// window.addEventListener('load', function () {
+		// 	allSkeleton.forEach((item) => {
+		// 		item.classList.remove('skeleton');
+		// 	});
+		// });
 	});
 </script>
 
