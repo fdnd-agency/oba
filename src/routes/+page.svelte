@@ -8,7 +8,7 @@
 	const hygraphData = data.hygraphData;
 	const homepage = hygraphData.homepages;
 
-	// Hier maak ik carrousels dat ik vervolgens loop uit een array
+	// Hier maak ik carrousels dat ik vervolgens loop uit een array, waarom is dit niet dynamisch?
 	onMount(() => {
 		const sliders = [
 			{ id: 1, selector: '#voorbeeld-1 .carrousel-a' },
