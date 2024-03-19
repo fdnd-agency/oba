@@ -13,7 +13,7 @@ Ontwerp en bouw de Familieoverzicht pagina van het mijn OBA platform.
 
 [Huisstijl](https://github.com/fdnd-agency/oba/blob/main/OBA%20Styleguide%202019.pdf)
 
-[Content]() _wordt nog aangeleverd door de OBA_
+[REST API OBA Collecties](https://zoeken.oba.nl/api/v1/) - @OBA AquaBrowser
 
 ## Prototypes
 **Uitgangspunt voor het Design van de header & navigatie**  
