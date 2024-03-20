@@ -3,7 +3,6 @@
 	import { onMount } from 'svelte';
 
 	onMount(() => {
-
 		// PE Zet iets uit wanner Javascript niet werkt
 		const lastChild = document.querySelector('.last-child');
 		lastChild?.classList.toggle('last-child');
@@ -93,7 +92,7 @@
 		z-index: 2;
 	}
 
-	.last-child{
+	.last-child {
 		padding-bottom: 40px;
 	}
 
@@ -165,6 +164,8 @@
 		z-index: 120;
 		background-color: var(--primary-accent-color);
 		border-radius: 0 0 1rem 1rem;
+		position: relative;
+		height: 100px;
 	}
 
 	.hamburger1 div {
@@ -184,14 +185,20 @@
 	#toggle1:checked + .hamburger1 .top {
 		-webkit-transform: rotate(-45deg);
 		transform: rotate(-45deg);
-		margin-top: 2.5px;
+		margin-top: 49px;
+		border-radius: 0;
+		left: 28px;
+		position: absolute;
 	}
 
 	#toggle1:checked + .hamburger1 .meat {
 		-webkit-transform: rotate(45deg);
 		transform: rotate(45deg);
 		margin-top: -10px;
+		margin-top: 49px;
 		border-radius: 0;
+		left: 28px;
+		position: absolute;
 	}
 
 	#toggle1:checked + .hamburger1 .bottom {

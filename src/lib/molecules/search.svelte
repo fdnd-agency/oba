@@ -66,13 +66,13 @@
 				autocomplete="off"
 			/>
 			<a class="searchlink" href={value}>
-				<img src={Searchsvg} alt="submit" width="40" height="35" />
+				<img class="zoek-icon" src={Searchsvg} alt="submit" width="40" height="35" />
 			</a>
 		</form>
 	</div>
 	{#if showDialog}
 		<div class="model">
-			<p>Je zoekt: <span>{value}</span></p>
+			<p class="title-hero">Je zoekt: <span>{value}</span></p>
 			<article>
 				<button class="close-button" on:click={closeDialog}>X</button>
 			</article>
@@ -115,12 +115,17 @@
 		position: fixed;
 		left: 25%;
 		top: 0;
-		padding: 1.7rem;
 		border-radius: 0 0 1rem 1rem;
 		background-color: var(--primary-accent-color);
 		color: var(--primary-light-color);
 		text-decoration: none;
 		z-index: 999;
+	}
+
+	.title-hero {
+		font:
+			700 20px 'Oswald',
+			sans-serif;
 	}
 
 	.model {
@@ -148,6 +153,7 @@
 		text-align: center;
 		display: flex;
 		align-items: center;
+		padding: 1.7rem;
 	}
 
 	input {
@@ -158,7 +164,7 @@
 
 	button {
 		all: unset;
-		/* padding: 1rem .5rem; */
+		height: 100px;
 		background-color: var(--primary-accent-color);
 		color: var(--primary-light-color);
 	}
@@ -185,6 +191,11 @@
 	a {
 		text-decoration: none;
 		color: var(--primary-light-color);
+	}
+
+	.zoek-icon {
+		height: 33px;
+		display: grid;
 	}
 
 	p,
