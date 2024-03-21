@@ -1,6 +1,6 @@
 <script>
 	// Hier import ik de components die nodig zijn in deze pagina
-	import { Card, LinkButton, LogoBlue, LogoRed, LogoBlack, Search, Nav } from '$lib/index.js';
+	import { Card, LinkButton, LogoBlue, LogoRed, LogoBlack, Search, Nav, HeroLogo } from '$lib/index.js';
 	import { onMount } from 'svelte';
 
 	export let data;
@@ -60,10 +60,9 @@
 		</h1>
 		<p>{homepage[0].homepageText}</p>
 	</article>
-	<article class="logo">
-		<img class="logo-img" src={LogoBlack} alt="oba logo" />
-	</article>
+	<HeroLogo />
 </section>
+
 
 <section>
 	<article>
@@ -299,9 +298,6 @@
 		-webkit-justify-content: flex-start;
 	}
 
-	.logo-img {
-		width: 100%;
-	}
 
 	.nav-btn-right {
 		display: -webkit-flex;
@@ -358,6 +354,7 @@
 		-webkit-align-items: center;
 		-webkit-box-align: center;
 		border: none;
+		cursor: pointer;
 	}
 
 	section {
@@ -377,10 +374,6 @@
 
 	p {
 		padding: 2rem 0;
-	}
-
-	.logo {
-		padding: 0;
 	}
 
 	.carousel-container {
@@ -446,9 +439,6 @@
 			padding: 5rem 0;
 		} */
 
-		.logo {
-			width: 50%;
-		}
 		.about {
 			height: 100%;
 			display: flex;

@@ -145,6 +145,7 @@
 		-webkit-box-align: center;
 		border: none;
 		background-color: #e1e1e1;
+		cursor: pointer;
 	}
 
 	.disable-js {
