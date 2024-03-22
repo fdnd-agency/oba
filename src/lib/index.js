@@ -14,6 +14,8 @@ export { default as ReservationCard } from './molecules/reservationCard.svelte';
 export { default as Table } from './molecules/table.svelte';
 export { default as Nav } from './molecules/nav.svelte';
 export { default as Footer } from './molecules/footer.svelte';
+export { default as HeroLogo } from './molecules/heroLogo.svelte';
+
 // Hier export je alle organisms ------------------------------------------------------------------------------------------------------------
 // Hier export je alle organisms ------------------------------------------------------------------------------------------------------------
 // Hier export je alle organisms ------------------------------------------------------------------------------------------------------------

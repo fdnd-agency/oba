@@ -2,7 +2,6 @@
 	import { onMount } from 'svelte';
 
 	onMount(() => {
-
 		// Thema switch
 		const body = document.querySelector('body'),
 			toggle = document.querySelector('.toggle');
@@ -30,14 +29,12 @@
 	});
 </script>
 
-<div class="disable-js">
-	<div class="toggle-button-cover">
-		<div class="theme-title">Verander thema</div>
-		<div class="button r toggle" id="button-3">
-			<input type="checkbox" class="checkbox" />
-			<div class="knobs"></div>
-			<div class="layer"></div>
-		</div>
+<div class="theme-switch disable-js">
+	<div class="theme-title">Verander thema</div>
+	<div class="button toggle" id="button-3">
+		<input type="checkbox" class="theme-toggle" />
+		<div class="knobs"></div>
+		<div class="layer"></div>
 	</div>
 </div>
 
@@ -55,12 +52,12 @@
 		color: var(--primary-light-color);
 	}
 
-	.toggle-button-cover {
+	.theme-switch {
 		display: flex;
 		align-items: center;
 		position: relative;
 		width: 100%;
-		padding: 0px 0 40px 0;
+		padding: 0px 0 2.5rem 0;
 		box-sizing: border-box;
 	}
 
@@ -75,18 +72,18 @@
 
 	.button {
 		position: relative;
-		width: 75px;
-		height: 36px;
+		width: 4.7rem;
+		height: 2.25rem;
 		margin-left: 20px;
 		overflow: hidden;
 	}
 
-	.button.r,
-	.button.r .layer {
-		border-radius: 100px;
+	.button,
+	.button .layer {
+		border-radius: 6.25rem;
 	}
 
-	.checkbox {
+	.theme-toggle {
 		position: relative;
 		width: 100%;
 		height: 100%;
@@ -104,7 +101,6 @@
 	.disable-js {
 		display: none;
 	}
-
 
 	.layer {
 		width: 100%;
@@ -134,21 +130,21 @@
 			left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
 	}
 
-	#button-3 .checkbox:active + .knobs:before {
-		width: 46px;
-		border-radius: 100px;
+	#button-3 .theme-toggle:active + .knobs:before {
+		width: 2.9rem;
+		border-radius: 6.25rem;
 	}
 
-	#button-3 .checkbox:checked:active + .knobs:before {
+	#button-3 .theme-toggle:checked:active + .knobs:before {
 		margin-left: -28px;
 	}
 
-	#button-3 .checkbox:checked + .knobs:before {
+	#button-3 .theme-toggle:checked + .knobs:before {
 		content: '';
-		left: 43px;
+		left: 2.7rem;
 		background-color: var(--primary-accent-color);
 	}
-	#button-3 .checkbox:checked ~ .layer {
+	#button-3 .theme-toggle:checked ~ .layer {
 		background-color: #fcebeb;
 	}
 </style>
